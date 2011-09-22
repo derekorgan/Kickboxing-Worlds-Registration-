@@ -1,0 +1,11 @@
+Type:
+  compeditor:
+    name: Compeditor
+  coach:
+    name: Coach
+  staff:
+    name: Staff
+  specatator:
+    name: Spectator
+  referee:
+    name: Referee

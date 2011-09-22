@@ -1,0 +1,15 @@
+CREATE TABLE attendee (id INT AUTO_INCREMENT, team_administrator_id INT NOT NULL, division_id INT NOT NULL, type_id INT NOT NULL, first_name VARCHAR(45), last_name VARCHAR(45), accomodation VARCHAR(45), sharing_with VARCHAR(45), flight_datetime DATETIME, flight_number VARCHAR(45), INDEX division_id_idx (division_id), INDEX team_administrator_id_idx (team_administrator_id), INDEX type_id_idx (type_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE discipline (id INT AUTO_INCREMENT, name VARCHAR(45), sex VARCHAR(6), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE division (id INT AUTO_INCREMENT, discipline_id INT, category VARCHAR(45), weight VARCHAR(45), status TINYINT DEFAULT '1' NOT NULL, PRIMARY KEY(id, discipline_id)) ENGINE = INNODB;
+CREATE TABLE event (id INT AUTO_INCREMENT, name VARCHAR(45), description TEXT, start DATE, end DATE, register_by DATE, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE event_discipline (id BIGINT AUTO_INCREMENT, event_id INT NOT NULL, discipline_id INT NOT NULL, INDEX event_id_idx (event_id), INDEX discipline_id_idx (discipline_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE team_administrator (id INT AUTO_INCREMENT, event_id INT NOT NULL, first_name VARCHAR(45), last_name VARCHAR(45), username VARCHAR(45), password VARCHAR(45), email VARCHAR(45), team_name VARCHAR(64), INDEX event_id_idx (event_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE type (id INT AUTO_INCREMENT, name VARCHAR(45), PRIMARY KEY(id)) ENGINE = INNODB;
+ALTER TABLE attendee ADD CONSTRAINT attendee_type_id_type_id FOREIGN KEY (type_id) REFERENCES type(id);
+ALTER TABLE attendee ADD CONSTRAINT attendee_team_administrator_id_team_administrator_id FOREIGN KEY (team_administrator_id) REFERENCES team_administrator(id);
+ALTER TABLE attendee ADD CONSTRAINT attendee_division_id_division_id FOREIGN KEY (division_id) REFERENCES division(id);
+ALTER TABLE division ADD CONSTRAINT division_id_attendee_division_id FOREIGN KEY (id) REFERENCES attendee(division_id);
+ALTER TABLE division ADD CONSTRAINT division_discipline_id_discipline_id FOREIGN KEY (discipline_id) REFERENCES discipline(id);
+ALTER TABLE event_discipline ADD CONSTRAINT event_discipline_event_id_event_id FOREIGN KEY (event_id) REFERENCES event(id);
+ALTER TABLE event_discipline ADD CONSTRAINT event_discipline_discipline_id_discipline_id FOREIGN KEY (discipline_id) REFERENCES discipline(id);
+ALTER TABLE team_administrator ADD CONSTRAINT team_administrator_event_id_event_id FOREIGN KEY (event_id) REFERENCES event(id);
