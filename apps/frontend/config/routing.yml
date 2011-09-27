@@ -4,7 +4,7 @@
 # default rules
 
 sf_guard_register:
-  url: /register
+  url: /test
   param: { module: sfGuardRegister, action: index }
 
 sf_guard_signin:
