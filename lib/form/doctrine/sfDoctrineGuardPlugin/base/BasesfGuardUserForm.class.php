@@ -5,7 +5,7 @@
  *
  * @method sfGuardUser getObject() Returns the current form's model object
  *
- * @package    registration
+ * @package    my_derek
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
@@ -17,8 +17,10 @@ abstract class BasesfGuardUserForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'               => new sfWidgetFormInputHidden(),
       'first_name'       => new sfWidgetFormInputText(),
-      'last_name'        => new sfWidgetFormInputText(),
+      'last_name'        => new sfWidgetFormInputText,
+      'country'          => new sfWidgetFormInputText(),
       'email_address'    => new sfWidgetFormInputText(),
+      'email_again'      => new sfWidgetFormInputText(),
       'username'         => new sfWidgetFormInputText(),
       'algorithm'        => new sfWidgetFormInputText(),
       'salt'             => new sfWidgetFormInputText(),
@@ -37,7 +39,9 @@ abstract class BasesfGuardUserForm extends BaseFormDoctrine
       'first_name'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'last_name'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'email_address'    => new sfValidatorString(array('max_length' => 255)),
+      'email_again'      => new sfValidatorString(array('max_length' => 255)),
       'username'         => new sfValidatorString(array('max_length' => 128)),
+      'country'          => new sfValidatorString(array('max_length' => 128)),
       'algorithm'        => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'salt'             => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'password'         => new sfValidatorString(array('max_length' => 128, 'required' => false)),
