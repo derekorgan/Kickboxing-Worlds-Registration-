@@ -3,6 +3,10 @@
 
 # default rules
 
+sf_guard_register:
+  url: /register
+  param: { module: sfGuardRegister, action: index }
+
 sf_guard_signin:
   url:   /login
   param: { module: sfGuardAuth, action: signin }
