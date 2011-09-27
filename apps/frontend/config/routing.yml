@@ -4,7 +4,7 @@
 # default rules
 
 sf_guard_signin:
-  url:   /
+  url:   /login
   param: { module: sfGuardAuth, action: signin }
 
 sf_guard_signout:
