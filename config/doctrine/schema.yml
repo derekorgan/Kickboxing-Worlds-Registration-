@@ -86,7 +86,7 @@ Discipline:
       type: integer(8)
       fixed: false
       unsigned: false
-      primary: true
+      primary: false
       autoincrement: true
     name:
       type: string(45)
