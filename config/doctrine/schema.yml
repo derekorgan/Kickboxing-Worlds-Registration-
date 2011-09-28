@@ -344,7 +344,7 @@ Type:
       type: many
 Profile:
   columns:
-    sf_guard_user_id: integer(4)
+    sf_guard_user_id: integer(5)
     first_name: string(255)
     middle_name: string(255)
     last_name: string(255)
