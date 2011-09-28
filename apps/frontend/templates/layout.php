@@ -9,6 +9,23 @@
     <?php include_javascripts() ?>
   </head>
   <body>
+<div class="xgrid" id="content">
+               
+                
+<div class="x12 pad-top">
+  
+	<div class="login-box">
+      
+      
     <?php echo $sf_content ?>
+            
+            
+            
+                
+	</div>
+			
+   </div> <!-- .x12 -->
+               
+</div>
   </body>
 </html>

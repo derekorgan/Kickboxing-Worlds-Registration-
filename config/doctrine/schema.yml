@@ -3,20 +3,13 @@ Attendee:
   tableName: attendee
   columns:
     id:
-      type: integer(4)
+      type: integer(8)
       fixed: false
       unsigned: false
       primary: true
       autoincrement: true
-    team_administrator_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
     division_id:
-      type: integer(4)
+      type: integer(8)
       fixed: false
       unsigned: false
       primary: false
@@ -72,10 +65,6 @@ Attendee:
       notnull: false
       autoincrement: false
   relations:
-    TeamAdministrator:
-      local: team_administrator_id
-      foreign: id
-      type: one
     Division:
       local: division_id
       foreign: id
@@ -84,12 +73,17 @@ Attendee:
       local: type_id
       foreign: id
       type: one
+    Profile:
+      local: id
+      foreign: attendant_id
+      type: one
+
 Discipline:
   connection: doctrine
   tableName: discipline
   columns:
     id:
-      type: integer(4)
+      type: integer(8)
       fixed: false
       unsigned: false
       primary: true
@@ -125,13 +119,13 @@ Division:
   tableName: division
   columns:
     id:
-      type: integer(4)
+      type: integer(8)
       fixed: false
       unsigned: false
       primary: true
       autoincrement: true
     discipline_id:
-      type: integer(4)
+      type: integer(8)
       fixed: false
       unsigned: false
       primary: true
@@ -172,7 +166,7 @@ Event:
   tableName: event
   columns:
     id:
-      type: integer(4)
+      type: integer(8)
       fixed: false
       unsigned: false
       primary: true
@@ -217,10 +211,11 @@ Event:
       local: id
       foreign: event_id
       type: many
-    TeamAdministrator:
+    Profile:
       local: id
       foreign: event_id
-      type: many
+      type: one
+
 EventDiscipline:
   connection: doctrine
   tableName: event_discipline
@@ -230,14 +225,14 @@ EventDiscipline:
       autoincrement: true
       primary: true
     event_id:
-      type: integer(4)
+      type: integer
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     discipline_id:
-      type: integer(4)
+      type: integer(8)
       fixed: false
       unsigned: false
       primary: false
@@ -252,74 +247,17 @@ EventDiscipline:
       local: discipline_id
       foreign: id
       type: one
-TeamAdministrator:
-  connection: doctrine
-  tableName: team_administrator
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    event_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    first_name:
-      type: string(45)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    last_name:
-      type: string(45)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    username:
-      type: string(45)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    password:
-      type: string(45)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    email:
-      type: string(45)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    team_name:
-      type: string(64)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  relations:
-    Event:
-      local: event_id
-      foreign: id
-      type: one
-    Attendee:
-      local: id
-      foreign: team_administrator_id
-      type: many
+
+#TeamAdministrator:
+  #relations:
+    #Event:
+      #local: event_id
+      #foreign: id
+      #type: one
+    #Attendee:
+      #local: id
+      #foreign: team_administrator_id
+      #type: many
 Type:
   connection: doctrine
   tableName: type
@@ -342,9 +280,14 @@ Type:
       local: id
       foreign: type_id
       type: many
+
+
+
 Profile:
   columns:
-    sf_guard_user_id: integer(5)
+    sf_guard_user_id: integer
+    attendant_id: integer(8)
+    event_id: integer(8)
     first_name: string(255)
     middle_name: string(255)
     last_name: string(255)
@@ -353,3 +296,12 @@ Profile:
     User:
       class: sfGuardUser
       foreignType: one
+    Attendee:
+      local: attendant_id
+      foreign: id
+      type: one
+    Event:
+      local: event_id
+      foreign: id
+      type: many
+
