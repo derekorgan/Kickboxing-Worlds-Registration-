@@ -14,15 +14,13 @@ abstract class BaseDivisionFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'discipline_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Discipline'), 'add_empty' => true)),
-      'attende_id'    => new sfWidgetFormFilterInput(),
-      'category'      => new sfWidgetFormFilterInput(),
+      'category'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'weight'        => new sfWidgetFormFilterInput(),
       'status'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
       'discipline_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Discipline'), 'column' => 'id')),
-      'attende_id'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'category'      => new sfValidatorPass(array('required' => false)),
       'weight'        => new sfValidatorPass(array('required' => false)),
       'status'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -47,7 +45,6 @@ abstract class BaseDivisionFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'            => 'Number',
       'discipline_id' => 'ForeignKey',
-      'attende_id'    => 'Number',
       'category'      => 'Text',
       'weight'        => 'Text',
       'status'        => 'Number',

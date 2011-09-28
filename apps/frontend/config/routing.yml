@@ -8,6 +8,17 @@ atten:
   param: { module: attendee, action: index }
 
 
+atten_edit:
+  url:   /attendee/edit/:id
+  param: { module: attendee, action: edit }
+
+
+atten_delete:
+  url:   /attendee/delete/:id
+  param: { module: attendee, action: delete }
+
+
+
 sf_guard_register:
   url:   /register
   param: { module: sfGuardRegister, action: index }

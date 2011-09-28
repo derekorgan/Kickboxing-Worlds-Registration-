@@ -21,7 +21,7 @@ abstract class BaseTypeForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'   => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'name' => new sfValidatorString(array('max_length' => 45, 'required' => false)),
+      'name' => new sfValidatorString(array('max_length' => 255)),
     ));
 
     $this->widgetSchema->setNameFormat('type[%s]');

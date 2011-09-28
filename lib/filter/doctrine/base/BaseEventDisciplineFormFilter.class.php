@@ -13,13 +13,9 @@ abstract class BaseEventDisciplineFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'event_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Event'), 'add_empty' => true)),
-      'discipline_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Discipline'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'event_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Event'), 'column' => 'id')),
-      'discipline_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Discipline'), 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('event_discipline_filters[%s]');
@@ -39,9 +35,8 @@ abstract class BaseEventDisciplineFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'            => 'Number',
-      'event_id'      => 'ForeignKey',
-      'discipline_id' => 'ForeignKey',
+      'event_id'      => 'Number',
+      'discipline_id' => 'Number',
     );
   }
 }

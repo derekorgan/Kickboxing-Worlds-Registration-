@@ -1,50 +1,78 @@
+#NEW SCHEMA
+##########
+
 Attendee:
   connection: doctrine
   tableName: attendee
   columns:
-    id:
-      type: integer(8)
+    profile_id:
+      type: integer
       fixed: false
       unsigned: false
-      primary: true
-      autoincrement: true
+      primary: false
+      notnull: true
+      autoincrement: false
     division_id:
-      type: integer(8)
+      type: integer
       fixed: false
       unsigned: false
       primary: false
       notnull: false
       autoincrement: false
     type_id:
-      type: integer(4)
+      type: integer
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
     first_name:
-      type: string(45)
+      type: string(255)
       fixed: false
       unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    last_name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    sex:
+      type: enum(6)
+      fixed: false
+      unsigned: false
+      values:
+        - Male
+        - Female
       primary: false
       notnull: false
       autoincrement: false
-    last_name:
-      type: string(45)
+    club_name:
+      type: string(255)
       fixed: false
       unsigned: false
       primary: false
-      notnull: false
+      notnull: true
       autoincrement: false
     accomodation:
       type: string(45)
       fixed: false
       unsigned: false
       primary: false
+      notnull: true
+      autoincrement: false
+    sharing_with1:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: false
       autoincrement: false
-    sharing_with:
-      type: string(45)
+    sharing_with2:
+      type: string(255)
       fixed: false
       unsigned: false
       primary: false
@@ -64,35 +92,43 @@ Attendee:
       primary: false
       notnull: false
       autoincrement: false
+    visa:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    dob:
+      type: date(25)
+      notnull: false
+    passport:
+      type: string(255)
+      notnull: false
+    expiry_date:
+      type: date(25)
+      notnull: false      
   relations:
     Division:
-      local: division_id
-      foreign: id
+        foreignAlias: Attendees_Div
     Type:
-      local: type_id
-      foreign: id
-      type: one
+        foreignAlias: Attendees_T
     Profile:
-      local: id
-      foreign: attendant_id
-      type: one
+        foreignAlias: Attendees_P
+
+
 
 Discipline:
   connection: doctrine
   tableName: discipline
   columns:
-    id:
-      type: integer(8)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
     name:
-      type: string(45)
+      type: string(255)
       fixed: false
       unsigned: false
       primary: false
-      notnull: false
+      notnull: true
       autoincrement: false
     sex:
       type: enum(6)
@@ -102,44 +138,34 @@ Discipline:
         - Male
         - Female
       primary: false
-      notnull: false
+      notnull: true
       autoincrement: false
   relations:
-    Division:
-      local: id
-      foreign: discipline_id
-      type: many
-    EventDiscipline:
-      local: id
-      foreign: discipline_id
-      type: many
+    Event:
+      foreignAlias: Disciplines_E
+      class: Event
+      refClass: EventDiscipline
+      
 Division:
   connection: doctrine
   tableName: division
   columns:
-    id:
-      type: integer(8)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
     discipline_id:
-      type: integer(8)
+      type: integer
       fixed: false
       unsigned: false
       primary: false
+      notnull: true
       autoincrement: false
-    attende_id:
-      type: integer(8)
     category:
-      type: string(45)
+      type: string(255)
       fixed: false
       unsigned: false
       primary: false
-      notnull: false
+      notnull: true
       autoincrement: false
     weight:
-      type: string(45)
+      type: string(255)
       fixed: false
       unsigned: false
       primary: false
@@ -155,149 +181,46 @@ Division:
       autoincrement: false
   relations:
     Discipline:
-      local: discipline_id
-      foreign: id
-      type: one
+      foreignAlias: Divisions_Disc
 
 Event:
-  connection: doctrine
-  tableName: event
   columns:
-    id:
-      type: integer(8)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    name:
-      type: string(45)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    description:
-      type: string()
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    start:
-      type: date(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    end:
-      type: date(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    register_by:
-      type: date(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  relations:
-    EventDiscipline:
-      local: id
-      foreign: event_id
-      type: many
-    Profile:
-      local: id
-      foreign: event_id
-      type: one
-
-EventDiscipline:
-  connection: doctrine
-  tableName: event_discipline
-  columns:
-    id:
-      type: integer(8)
-      autoincrement: true
-      primary: true
-    event_id:
-      type: integer
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    discipline_id:
-      type: integer(8)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-  relations:
-    Event:
-      local: event_id
-      foreign: id
-      type: one
-    Discipline:
-      local: discipline_id
-      foreign: id
-      type: one
-
-#TeamAdministrator:
-  #relations:
-    #Event:
-      #local: event_id
-      #foreign: id
-      #type: one
-    #Attendee:
-      #local: id
-      #foreign: team_administrator_id
-      #type: many
-Type:
-  connection: doctrine
-  tableName: type
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    name:
-      type: string(45)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  relations:
-    Attendee:
-      local: id
-      foreign: type_id
-      type: many
-
-
+    name: { type: string(255), default: null }
+    description: { type: text }
+    starts: { type: date }
+    ends: { type: date }
+    register_by: { type: date }
 
 Profile:
   columns:
-    sf_guard_user_id: integer
-    attendant_id: integer(8)
-    event_id: integer(8)
-    first_name: string(255)
-    middle_name: string(255)
-    last_name: string(255)
-    email_address: string(255)
+    event_id: { type: integer, notnull: true }
+    sf_guard_user_id: { type: integer, notnull: true }
+    first_name:  { type: string(255) }
+    last_name: { type: string(255) }
+    email_address: { type: string(255) }
+    country: { type: string(255) }
   relations:
-    User:
-      class: sfGuardUser
-      foreignType: one
     Event:
-      local: event_id
+      foreignAlias: Profiles_E
+    sfGuardUser:
+      local: sf_guard_user_id
       foreign: id
-      type: many
 
+Type:
+  columns:
+    name: { type: string(255), notnull: true }
 
-      
+    
+EventDiscipline:
+  columns:
+     event_id:
+        type: integer
+        primary: true
+     discipline_id:
+        type: integer
+        primary: true
+  relations:
+    Event:
+      foreignAlias: EventDisciplines
+    Discipline:
+      foreignAlias: EventDisciplines

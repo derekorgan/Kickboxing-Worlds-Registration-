@@ -16,8 +16,7 @@ abstract class BaseDivisionForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
-      'discipline_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Discipline'), 'add_empty' => true)),
-      'attende_id'    => new sfWidgetFormInputText(),
+      'discipline_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Discipline'), 'add_empty' => false)),
       'category'      => new sfWidgetFormInputText(),
       'weight'        => new sfWidgetFormInputText(),
       'status'        => new sfWidgetFormInputText(),
@@ -25,10 +24,9 @@ abstract class BaseDivisionForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'discipline_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Discipline'), 'required' => false)),
-      'attende_id'    => new sfValidatorInteger(array('required' => false)),
-      'category'      => new sfValidatorString(array('max_length' => 45, 'required' => false)),
-      'weight'        => new sfValidatorString(array('max_length' => 45, 'required' => false)),
+      'discipline_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Discipline'))),
+      'category'      => new sfValidatorString(array('max_length' => 255)),
+      'weight'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'status'        => new sfValidatorInteger(array('required' => false)),
     ));
 
