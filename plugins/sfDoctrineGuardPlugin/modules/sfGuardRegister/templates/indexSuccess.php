@@ -6,7 +6,7 @@
 
 
             
-  	<h2 class="header-padding">Create Account</h2>
+		<h2 class="header-padding">Create Account</h2>
 		<div class="login-left">
                     
                     <?php echo get_partial('sfGuardRegister/form', array('form' => $form)) ?>

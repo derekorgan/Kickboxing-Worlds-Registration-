@@ -9,6 +9,7 @@ Doctrine_Manager::getInstance()->bindComponent('Division', 'doctrine');
  * 
  * @property integer $id
  * @property integer $discipline_id
+ * @property integer $attende_id
  * @property string $category
  * @property string $weight
  * @property integer $status
@@ -17,6 +18,7 @@ Doctrine_Manager::getInstance()->bindComponent('Division', 'doctrine');
  * 
  * @method integer             getId()            Returns the current record's "id" value
  * @method integer             getDisciplineId()  Returns the current record's "discipline_id" value
+ * @method integer             getAttendeId()     Returns the current record's "attende_id" value
  * @method string              getCategory()      Returns the current record's "category" value
  * @method string              getWeight()        Returns the current record's "weight" value
  * @method integer             getStatus()        Returns the current record's "status" value
@@ -24,13 +26,14 @@ Doctrine_Manager::getInstance()->bindComponent('Division', 'doctrine');
  * @method Doctrine_Collection getAttendee()      Returns the current record's "Attendee" collection
  * @method Division            setId()            Sets the current record's "id" value
  * @method Division            setDisciplineId()  Sets the current record's "discipline_id" value
+ * @method Division            setAttendeId()     Sets the current record's "attende_id" value
  * @method Division            setCategory()      Sets the current record's "category" value
  * @method Division            setWeight()        Sets the current record's "weight" value
  * @method Division            setStatus()        Sets the current record's "status" value
  * @method Division            setDiscipline()    Sets the current record's "Discipline" value
  * @method Division            setAttendee()      Sets the current record's "Attendee" collection
  * 
- * @package    registration
+ * @package    my_derek
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
@@ -40,21 +43,25 @@ abstract class BaseDivision extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('division');
-        $this->hasColumn('id', 'integer', 4, array(
+        $this->hasColumn('id', 'integer', 8, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => true,
              'autoincrement' => true,
-             'length' => 4,
+             'length' => 8,
              ));
-        $this->hasColumn('discipline_id', 'integer', 4, array(
+        $this->hasColumn('discipline_id', 'integer', 8, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
-             'primary' => true,
+             'primary' => false,
              'autoincrement' => false,
-             'length' => 4,
+             'length' => 8,
+             ));
+        $this->hasColumn('attende_id', 'integer', 8, array(
+             'type' => 'integer',
+             'length' => 8,
              ));
         $this->hasColumn('category', 'string', 45, array(
              'type' => 'string',

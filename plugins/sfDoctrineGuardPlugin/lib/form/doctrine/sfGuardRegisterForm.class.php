@@ -17,7 +17,7 @@ class sfGuardRegisterForm extends BasesfGuardRegisterForm
   {
               
         $this->setValidator('username', new sfValidatorAnd(array(
-  	     new sfValidatorString(
+		     new sfValidatorString(
 		         array('required' => true, 'min_length' => 4, 'max_length' => 20), 
 		         array('min_length' => 'Your username must have at least 4 characters.', 
                                'max_length' => 'Your username cannot be longer than 20 characters.')

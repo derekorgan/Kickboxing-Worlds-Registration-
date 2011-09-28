@@ -2,7 +2,7 @@
 
 
 
-  	<h2 class="header-padding">World Kick Boxing Championship 2011 Registration</h2>
+		<h2 class="header-padding">World Kick Boxing Championship 2011 Registration</h2>
 		<div class="login-left">
 			
                     

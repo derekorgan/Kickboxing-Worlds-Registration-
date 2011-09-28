@@ -18,9 +18,9 @@
     
     
     <div class="field">
-        <?php echo $form['country']->renderLabel() ?>
+        <?php /* echo $form['country']->renderLabel() ?>
         <?php echo $form['country']->render() ?>
-        <?php echo $form['country']->renderError() ?>
+        <?php echo $form['country']->renderError()  */ ?>
     </div>
     
     
@@ -37,9 +37,9 @@
         <?php echo $form['email_address']->renderError() ?>
     </div>
     <div class="field">
-        <?php echo $form['email_again']->renderLabel('Re-Enter Email') ?>
+        <?php /* echo $form['email_again']->renderLabel('Re-Enter Email') ?>
         <?php echo $form['email_again']->render() ?>
-        <?php echo $form['email_again']->renderError() ?>
+        <?php echo $form['email_again']->renderError()  */ ?>
     </div>
     
     <div class="field">

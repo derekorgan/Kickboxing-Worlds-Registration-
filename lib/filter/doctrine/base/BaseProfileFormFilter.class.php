@@ -3,7 +3,7 @@
 /**
  * Profile filter form base class.
  *
- * @package    registration
+ * @package    my_derek
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
@@ -14,6 +14,8 @@ abstract class BaseProfileFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'sf_guard_user_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
+      'attendant_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Attendee'), 'add_empty' => true)),
+      'event_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Event'), 'add_empty' => true)),
       'first_name'       => new sfWidgetFormFilterInput(),
       'middle_name'      => new sfWidgetFormFilterInput(),
       'last_name'        => new sfWidgetFormFilterInput(),
@@ -22,6 +24,8 @@ abstract class BaseProfileFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'sf_guard_user_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('User'), 'column' => 'id')),
+      'attendant_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Attendee'), 'column' => 'id')),
+      'event_id'         => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Event'), 'column' => 'id')),
       'first_name'       => new sfValidatorPass(array('required' => false)),
       'middle_name'      => new sfValidatorPass(array('required' => false)),
       'last_name'        => new sfValidatorPass(array('required' => false)),
@@ -47,6 +51,8 @@ abstract class BaseProfileFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'               => 'Number',
       'sf_guard_user_id' => 'ForeignKey',
+      'attendant_id'     => 'ForeignKey',
+      'event_id'         => 'ForeignKey',
       'first_name'       => 'Text',
       'middle_name'      => 'Text',
       'last_name'        => 'Text',

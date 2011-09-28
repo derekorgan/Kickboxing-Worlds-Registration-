@@ -5,7 +5,7 @@
  *
  * @method Division getObject() Returns the current form's model object
  *
- * @package    registration
+ * @package    my_derek
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
@@ -16,7 +16,8 @@ abstract class BaseDivisionForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
-      'discipline_id' => new sfWidgetFormInputHidden(),
+      'discipline_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Discipline'), 'add_empty' => true)),
+      'attende_id'    => new sfWidgetFormInputText(),
       'category'      => new sfWidgetFormInputText(),
       'weight'        => new sfWidgetFormInputText(),
       'status'        => new sfWidgetFormInputText(),
@@ -24,7 +25,8 @@ abstract class BaseDivisionForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'discipline_id' => new sfValidatorChoice(array('choices' => array($this->getObject()->get('discipline_id')), 'empty_value' => $this->getObject()->get('discipline_id'), 'required' => false)),
+      'discipline_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Discipline'), 'required' => false)),
+      'attende_id'    => new sfValidatorInteger(array('required' => false)),
       'category'      => new sfValidatorString(array('max_length' => 45, 'required' => false)),
       'weight'        => new sfValidatorString(array('max_length' => 45, 'required' => false)),
       'status'        => new sfValidatorInteger(array('required' => false)),

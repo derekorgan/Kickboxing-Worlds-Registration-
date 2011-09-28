@@ -14,26 +14,26 @@ Doctrine_Manager::getInstance()->bindComponent('Event', 'doctrine');
  * @property date $end
  * @property date $register_by
  * @property Doctrine_Collection $EventDiscipline
- * @property Doctrine_Collection $TeamAdministrator
+ * @property Profile $Profile
  * 
- * @method integer             getId()                Returns the current record's "id" value
- * @method string              getName()              Returns the current record's "name" value
- * @method string              getDescription()       Returns the current record's "description" value
- * @method date                getStart()             Returns the current record's "start" value
- * @method date                getEnd()               Returns the current record's "end" value
- * @method date                getRegisterBy()        Returns the current record's "register_by" value
- * @method Doctrine_Collection getEventDiscipline()   Returns the current record's "EventDiscipline" collection
- * @method Doctrine_Collection getTeamAdministrator() Returns the current record's "TeamAdministrator" collection
- * @method Event               setId()                Sets the current record's "id" value
- * @method Event               setName()              Sets the current record's "name" value
- * @method Event               setDescription()       Sets the current record's "description" value
- * @method Event               setStart()             Sets the current record's "start" value
- * @method Event               setEnd()               Sets the current record's "end" value
- * @method Event               setRegisterBy()        Sets the current record's "register_by" value
- * @method Event               setEventDiscipline()   Sets the current record's "EventDiscipline" collection
- * @method Event               setTeamAdministrator() Sets the current record's "TeamAdministrator" collection
+ * @method integer             getId()              Returns the current record's "id" value
+ * @method string              getName()            Returns the current record's "name" value
+ * @method string              getDescription()     Returns the current record's "description" value
+ * @method date                getStart()           Returns the current record's "start" value
+ * @method date                getEnd()             Returns the current record's "end" value
+ * @method date                getRegisterBy()      Returns the current record's "register_by" value
+ * @method Doctrine_Collection getEventDiscipline() Returns the current record's "EventDiscipline" collection
+ * @method Profile             getProfile()         Returns the current record's "Profile" value
+ * @method Event               setId()              Sets the current record's "id" value
+ * @method Event               setName()            Sets the current record's "name" value
+ * @method Event               setDescription()     Sets the current record's "description" value
+ * @method Event               setStart()           Sets the current record's "start" value
+ * @method Event               setEnd()             Sets the current record's "end" value
+ * @method Event               setRegisterBy()      Sets the current record's "register_by" value
+ * @method Event               setEventDiscipline() Sets the current record's "EventDiscipline" collection
+ * @method Event               setProfile()         Sets the current record's "Profile" value
  * 
- * @package    registration
+ * @package    my_derek
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
@@ -43,13 +43,13 @@ abstract class BaseEvent extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('event');
-        $this->hasColumn('id', 'integer', 4, array(
+        $this->hasColumn('id', 'integer', 8, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => true,
              'autoincrement' => true,
-             'length' => 4,
+             'length' => 8,
              ));
         $this->hasColumn('name', 'string', 45, array(
              'type' => 'string',
@@ -105,7 +105,7 @@ abstract class BaseEvent extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'event_id'));
 
-        $this->hasMany('TeamAdministrator', array(
+        $this->hasOne('Profile', array(
              'local' => 'id',
              'foreign' => 'event_id'));
     }

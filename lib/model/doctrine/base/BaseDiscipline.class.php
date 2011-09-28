@@ -24,7 +24,7 @@ Doctrine_Manager::getInstance()->bindComponent('Discipline', 'doctrine');
  * @method Discipline          setDivision()        Sets the current record's "Division" collection
  * @method Discipline          setEventDiscipline() Sets the current record's "EventDiscipline" collection
  * 
- * @package    registration
+ * @package    my_derek
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
@@ -34,13 +34,13 @@ abstract class BaseDiscipline extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('discipline');
-        $this->hasColumn('id', 'integer', 4, array(
+        $this->hasColumn('id', 'integer', 8, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => true,
              'autoincrement' => true,
-             'length' => 4,
+             'length' => 8,
              ));
         $this->hasColumn('name', 'string', 45, array(
              'type' => 'string',

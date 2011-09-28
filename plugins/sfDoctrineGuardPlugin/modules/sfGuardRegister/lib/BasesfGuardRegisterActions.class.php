@@ -7,7 +7,7 @@ class BasesfGuardRegisterActions extends sfActions
     if ($this->getUser()->isAuthenticated())
     {
       $this->getUser()->setFlash('notice', 'You are already registered and signed in!');
-      $this->redirect('@homepage');
+      $this->redirect('@atten');
     }
 
     $this->form = new sfGuardRegisterForm();
@@ -20,7 +20,7 @@ class BasesfGuardRegisterActions extends sfActions
         $user = $this->form->save();
         $this->getUser()->signIn($user);
 
-        $this->redirect('@homepage');
+        $this->redirect('@atten');
       }
     }
   }

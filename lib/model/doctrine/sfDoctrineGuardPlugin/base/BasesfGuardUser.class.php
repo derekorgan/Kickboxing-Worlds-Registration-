@@ -58,7 +58,7 @@
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
  * @method sfGuardUser           setProfile()               Sets the current record's "Profile" value
  * 
- * @package    registration
+ * @package    my_derek
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $

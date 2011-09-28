@@ -24,7 +24,7 @@ Doctrine_Manager::getInstance()->bindComponent('EventDiscipline', 'doctrine');
  * @method EventDiscipline setEvent()         Sets the current record's "Event" value
  * @method EventDiscipline setDiscipline()    Sets the current record's "Discipline" value
  * 
- * @package    registration
+ * @package    my_derek
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
@@ -40,23 +40,22 @@ abstract class BaseEventDiscipline extends sfDoctrineRecord
              'primary' => true,
              'length' => 8,
              ));
-        $this->hasColumn('event_id', 'integer', 4, array(
+        $this->hasColumn('event_id', 'integer', null, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 4,
              ));
-        $this->hasColumn('discipline_id', 'integer', 4, array(
+        $this->hasColumn('discipline_id', 'integer', 8, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 4,
+             'length' => 8,
              ));
     }
 
