@@ -7,15 +7,24 @@ atten:
   url:   /attendee
   param: { module: attendee, action: index }
 
-
 atten_edit:
   url:   /attendee/edit/:id
   param: { module: attendee, action: edit }
 
+atten_update:
+  url:   /attendee/update/:id
+  param: { module: attendee, action: update }
 
 atten_delete:
   url:   /attendee/delete/:id
   param: { module: attendee, action: delete }
+
+atten_new:
+  url: attendee/new
+  param: { module: attendee, action: new }
+atten_create:
+  url: attendee/create
+  param: { module: attendee, action: create }
 
 
 
@@ -41,7 +50,7 @@ sf_guard_password:
 
 homepage:
   url:   /
-  param: { module: sfGuardAuth, action: signin }
+  param: { module: default, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules

@@ -19,7 +19,19 @@ class BasesfGuardRegisterActions extends sfActions
       {
         $user = $this->form->save();
         $this->getUser()->signIn($user);
-
+        
+        $profile = new Profile();
+        
+        $profile->setSfGuardUserId($user->getId());
+        $profile->setEventId(1); //change later
+        $profile->setFirstName();
+        $profile->setLastName();
+        $profile->setEmailAddress();
+        $profile->setCountry();
+        
+        $profile->save();
+        
+        
         $this->redirect('@atten');
       }
     }

@@ -12,65 +12,34 @@
 	</thead>
 	
 	<tbody>
+            
+                
+                <?php foreach ($attendees as $attendee): ?>
 		<tr>
-			<td>John Doe</td>
-			<td>Compeditor</td>
-			<td colspan="2">Male, Semi Contact, Senior Men - Under 74kg</td>
-			<td class="center"><a href="add.html">Edit</a> | <a href="#">Remove</a></td>
+			<td><?php echo $attendee->getFirstName() ?></td>
+			<td><?php echo $attendee->getType() ?></td>
+			<td colspan="2">
+                            
+                          <?php if($attendee->getType() == 'Competitor'): ?>
+                            <?php echo $attendee->getDivision()->getDiscipline()->getSex() ?>,
+                            <?php echo $attendee->getDivision()->getDiscipline()->getName() ?>,
+                            <?php echo $attendee->getDivision()->getCategory() ?> 
+                            <span class="">- Under</span>
+                            <?php echo $attendee->getDivision()->getWeight() ?>
+                            <span class="">kg</span>
+					      <?php else: ?>
+						    -
+                          <?php endif; ?>
+                        </td>
+			<td class="center"><a href="<?php echo url_for("@atten_edit?id=" . $attendee->getId()) ?>">Edit</a> | <?php echo link_to('Delete', '@atten_delete?id='. $attendee->getId(), $attendee, array('method' => 'delete', 'confirm' => 'Are you sure?')) ?></td>
 
 		</tr>
-		<tr>
-			<td>Sarah Sharp</td>
-			<td>Compeditor</td>
-			<td colspan="2">Female, Light Contact, Cadet Girls - Under 55kg</td>
-			<td class="center"><a href="add.html">Edit</a> | <a href="#">Remove</a></td>
-
-		</tr>
-		<tr>
-			<td>Simon Breen</td>
-			<td>Coach</td>
-			<td colspan="2">-</td>
-			<td class="center"><a href="add.html">Edit</a> | <a href="#">Remove</a></td>
-
-		</tr>
-		<tr>
-			<td>Andrew Jackson</td>
-			<td>Staff</td>
-			<td colspan="2">-</td>
-			<td class="center"><a href="add.html">Edit</a> | <a href="#">Remove</a></td>
-
-		</tr>
-		<tr>
-			<td>Tom Sidwell</td>
-			<td>Spectator</td>
-			<td colspan="2">-</td>
-			<td class="center"><a href="add.html">Edit</a> | <a href="#">Remove</a></td>
-
-		</tr>
-		<tr>
-			<td>Anna Smith</td>
-			<td>Spectator</td>
-			<td colspan="2">-</td>
-			<td class="center"><a href="add.html">Edit</a> | <a href="#">Remove</a></td>
-
-		</tr>
-		<tr>
-			<td>David Ford</td>
-			<td>Referee</td>
-			<td colspan="2">-</td>
-			<td class="center"><a href="add.html">Edit</a> | <a href="#">Remove</a></td>
-
-		</tr>
+                <?php endforeach; ?>
+                
 	</tbody>
 </table>
-							<br>
-							<div class="buttonrow">
-
-
-								<form method="post" action="add.html"><button class="btn btn-black btn-login">Add Attendee</button></form>
-
-
-							</div>
+<br>
+<div class="buttonrow"><a style="text-align: center" class="btn btn-black btn-login" href="<?php echo url_for("@atten_new") ?>">Add Attendee</a></div>
 			
 		</div>
 
