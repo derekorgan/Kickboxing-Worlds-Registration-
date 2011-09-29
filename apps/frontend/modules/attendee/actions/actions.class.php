@@ -12,16 +12,18 @@ class attendeeActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->attendees = Doctrine_Core::getTable('Attendee')
-      ->createQuery('a')
-      ->execute();
+    $this->user_id = $this->getUser()->getGuardUser()->getId();
     
-    /*
-    $this->event = Doctrine_Core::getTable('Event')
-      ->createQuery('a')
-      ->execute();
+    //single profile
     
-    print_r($this->event); */
+    $profile_coll = Doctrine_Core::getTable('Profile')->findBySfGuardUserId(array($this->user_id));
+    $profile = $profile_coll[0];
+    
+    $profile_id = $profile->getId();
+    
+    
+    $this->attendees = Doctrine_Core::getTable('Attendee')->findByProfileId(array($profile_id));
+    
     
   }
 
@@ -34,6 +36,13 @@ class attendeeActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $this->user_id = $this->getUser()->getGuardUser()->getId();
+    
+    $this->id = $request->getParameter('id');
+    $profile_id_obj = Doctrine_Core::getTable('Profile')->findBySfGuardUserId(array($this->user_id));
+    
+    
+    foreach($profile_id_obj as $obj) //It's a Collection.
+        $this->profile_id = $obj->getId();
     
     //$profile_id_obj = Doctrine_Core::getTable('Profile')->findBySfGuardUserId(array($this->user_id));
     //$this->profile_id = $profile_id_obj->getId();

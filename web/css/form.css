@@ -6,7 +6,7 @@ FORM
 .form .field { width: 100%; float: left; }
 .form .field_help { margin-left: 145px; font-size: 90%; color: #777; }
 .form label, 
-.form span.label { color: #444; margin-right: 10px; padding-right: 10px; width: 125px; display: block; float: left;  font-weight: bold; text-align: right; position: relative; top: 6px; }
+.form span.label { color: #444; margin-right: 0px; padding-right: 10px; width: 125px; display: block; float: left;  font-weight: bold; text-align: right; position: relative; top: 6px; }
 .form label em, 
 .form span.label em { position: absolute; right: 0; font-size: 120%; font-style: normal; color: #C00; }
 

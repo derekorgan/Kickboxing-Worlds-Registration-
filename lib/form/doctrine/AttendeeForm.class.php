@@ -78,7 +78,14 @@ class AttendeeForm extends BaseAttendeeForm
       );
       
 
-      $this->widgetSchema['flight_datetime'] = new sfWidgetFormInputText();
+	$this->widgetSchema['flight_datetime'] = new sfWidgetFormDate(
+	  array(//'format' => '%year% - %month% - %day%',
+	  		'years' => $this->getYears(2011, 2015), //get years to show /*array_combine($years, $years)*/
+	  		'months' => $this->getMonths(), //get months to show
+	 		'label' => 'Date of Birth'
+	  )
+	);
+      
       
       $this->widgetSchema['visa'] = new sfWidgetFormSelectRadio(array('choices' => array(1 => 'Yes', 0 => 'No')));
       

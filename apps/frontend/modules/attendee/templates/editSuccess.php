@@ -1,7 +1,7 @@
 
 
 <div class="login-box">
-		<h2 class="header-padding">Edit Attendee<span class="logout"><a href="login.html">Logout</a></span></h2>
+		<h2 class="header-padding">Edit Attendee<span class="logout"><a href="<?php echo url_for("sf_guard_signout") ?>">Logout</a></span></h2>
 		<div class="login-left  no-border">
 			
 

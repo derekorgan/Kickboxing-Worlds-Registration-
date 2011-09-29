@@ -24,9 +24,9 @@ class BasesfGuardRegisterActions extends sfActions
         
         $profile->setSfGuardUserId($user->getId());
         $profile->setEventId(1); //change later
-        $profile->setFirstName();
-        $profile->setLastName();
-        $profile->setEmailAddress();
+        $profile->setFirstName($user->getFirstName());
+        $profile->setLastName($user->getLastName());
+        $profile->setEmailAddress($user->getEmailAddress());
         $profile->setCountry();
         
         $profile->save();

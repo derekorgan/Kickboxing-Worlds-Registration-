@@ -50,7 +50,7 @@ sf_guard_password:
 
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: sfGuardAuth, action: signin }
 
 # generic rules
 # please, remove them by adding more specific rules

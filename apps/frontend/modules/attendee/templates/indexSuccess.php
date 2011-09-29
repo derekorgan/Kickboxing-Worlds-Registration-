@@ -21,12 +21,23 @@
 			<td colspan="2">
                             
                           <?php if($attendee->getType() == 'Competitor'): ?>
-                            <?php echo $attendee->getDivision()->getDiscipline()->getSex() ?>,
-                            <?php echo $attendee->getDivision()->getDiscipline()->getName() ?>,
+                            
+                            
+                            <?php if($attendee->getDivision()->getDiscipline()->getSex() != NULL): ?>
+                              <?php echo $attendee->getDivision()->getDiscipline()->getSex() ?>,
+                            <?php endif; ?>
+                            
+                            <?php if($attendee->getDivision()->getDiscipline()->getName() != NULL): ?>
+                              <?php echo $attendee->getDivision()->getDiscipline()->getName() ?>,
+                            <?php endif; ?>
+                              
                             <?php echo $attendee->getDivision()->getCategory() ?> 
-                            <span class="">- Under</span>
-                            <?php echo $attendee->getDivision()->getWeight() ?>
-                            <span class="">kg</span>
+                              
+                            <?php if($attendee->getDivision()->getWeight() != NULL): ?>
+                              <span class="">- Under</span>
+                              <?php echo $attendee->getDivision()->getWeight() ?>
+                            <?php endif; ?>
+                            <span class=""></span>
 					      <?php else: ?>
 						    -
                           <?php endif; ?>

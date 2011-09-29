@@ -1,7 +1,7 @@
 
 
 <div class="login-box">
-		<h2 class="header-padding">Add Attendee<span class="logout"><a href="login.html">Logout</a></span></h2>
+		<h2 class="header-padding">Add Attendee<span class="logout"><a href="<?php echo url_for("@sf_guard_signout") ?>">Logout</a></span></h2>
 		<div class="login-left  no-border">
 			
 			<form id="add-form" class="form label-inline uniform" method="post" action="<?php echo url_for("@atten_create") ?>">
@@ -175,7 +175,7 @@
                             
 								<div class="field">
                                                                     <?php if(isset($user_id)): ?>
-                                                                    <?php echo $form['profile_id']->render(array('value' => $user_id)) ?>
+                                                                    <?php echo $form['profile_id']->render(array('value' => $profile_id)) ?>
                                                                     <?php endif; ?>
                                                                 </div>	
                         
