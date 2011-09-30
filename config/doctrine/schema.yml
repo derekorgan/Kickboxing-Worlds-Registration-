@@ -10,7 +10,7 @@ Attendee:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     division_id:
       type: integer

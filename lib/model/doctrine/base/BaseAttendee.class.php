@@ -84,7 +84,7 @@ abstract class BaseAttendee extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              ));
         $this->hasColumn('division_id', 'integer', null, array(

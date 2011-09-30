@@ -7,6 +7,11 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
+    
+      <script src="/kickboxing/web/js/jquery-1.5.2.min.js">
+        </script>
+        <script src="/kickboxing/web/js/jquery-ui-1.8.12.custom.min.js">
+        </script>
   </head>
   <body>
 <div class="xgrid" id="content">
@@ -29,10 +34,7 @@
 </div>
       
        
-        <script src="/kickboxing/web/js/jquery-1.5.2.min.js">
-        </script>
-        <script src="/kickboxing/web/js/jquery-ui-1.8.12.custom.min.js">
-        </script>
+  
       <!--
         <script src="/kickboxing/web/js/excanvas.min.js">
         </script>

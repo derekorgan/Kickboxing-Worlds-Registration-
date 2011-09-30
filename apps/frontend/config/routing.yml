@@ -3,30 +3,22 @@
 
 # default rules
 
-atten:
-  url:   /attendee
-  param: { module: attendee, action: index }
 
-atten_edit:
-  url:   /attendee/edit/:id
-  param: { module: attendee, action: edit }
+ajax:
+  url:   /ajax/:discipline_id
+  param: { module: attendee, action: ajax }
 
-atten_update:
-  url:   /attendee/update/:id
-  param: { module: attendee, action: update }
+attendee:
+  class: sfDoctrineRouteCollection
+  options: { model: Attendee }
 
 atten_delete:
   url:   /attendee/delete/:id
   param: { module: attendee, action: delete }
 
-atten_new:
-  url: attendee/new
-  param: { module: attendee, action: new }
-atten_create:
-  url: attendee/create
-  param: { module: attendee, action: create }
-
-
+atten:
+  url:   /attendee
+  param: { module: attendee, action: index }
 
 sf_guard_register:
   url:   /register
@@ -58,5 +50,5 @@ homepage:
   #url:   /:module
   #param: { action: index }
 
-#default:
-  #url:   /:module/:action/*
+default:
+  url:   /:module/:action/*

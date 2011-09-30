@@ -16,7 +16,7 @@ abstract class BaseAttendeeForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'              => new sfWidgetFormInputHidden(),
-      'profile_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Profile'), 'add_empty' => false)),
+      'profile_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Profile'), 'add_empty' => true)),
       'division_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Division'), 'add_empty' => true)),
       'type_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Type'), 'add_empty' => false)),
       'first_name'      => new sfWidgetFormInputText(),
@@ -37,7 +37,7 @@ abstract class BaseAttendeeForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'              => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'profile_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Profile'))),
+      'profile_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Profile'), 'required' => false)),
       'division_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Division'), 'required' => false)),
       'type_id'         => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Type'))),
       'first_name'      => new sfValidatorString(array('max_length' => 255)),

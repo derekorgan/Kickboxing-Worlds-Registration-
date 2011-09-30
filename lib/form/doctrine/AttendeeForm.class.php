@@ -53,6 +53,8 @@ class AttendeeForm extends BaseAttendeeForm
         
   public function configure()
   {
+           
+      
         $this->disciplines = Doctrine_Core::getTable('Discipline')
           ->createQuery('a')
           ->execute();
@@ -68,12 +70,14 @@ class AttendeeForm extends BaseAttendeeForm
       foreach($discs as $key => $value) 
       {
           $new_disc[$value] = $key;
-
       }
       
       
+      $fin = array('Discipline' => $new_disc);
+      
+      
       $this->widgetSchema['discipline'] = new sfWidgetFormChoice(array(
-		'choices' => $new_disc)
+		'choices' => $fin)
       );
       
       $this->validatorSchema['discipline'] = new sfValidatorPass();  
@@ -105,7 +109,7 @@ class AttendeeForm extends BaseAttendeeForm
 
       }
       $this->widgetSchema['division_id'] = new sfWidgetFormChoice(array(
-		'choices' => $new_divs)
+		'choices' => array('0' => 'Division'))
       );
       
       
@@ -126,7 +130,6 @@ class AttendeeForm extends BaseAttendeeForm
 	$this->widgetSchema['flight_datetime'] = new sfWidgetFormDate(
 	  array(//'format' => '%year% - %month% - %day%',
                     'format' => '%month% - %day%',
-	  		 //get years to show /*array_combine($years, $years)*/
 	  		'months' => $this->getMonths(), //get months to show
 	 		'label' => 'Date of Birth'
 	  )
@@ -144,7 +147,7 @@ class AttendeeForm extends BaseAttendeeForm
     
 	$this->widgetSchema['dob'] = new sfWidgetFormDate(
 	  array(//'format' => '%year% - %month% - %day%',
-	  		'years' => $this->getYears(1920, 2005), //get years to show /*array_combine($years, $years)*/
+	  		'years' => $this->getYears(1920, 2005), //get years to show 
 	  		'months' => $this->getMonths(), //get months to show
 	 		'label' => 'Date of Birth'
 	  )
@@ -155,7 +158,7 @@ class AttendeeForm extends BaseAttendeeForm
         
 	$this->widgetSchema['expiry_date'] = new sfWidgetFormDate(
 	  array(//'format' => '%year% - %month% - %day%',
-	  		'years' => $this->getYears(1920, 2050), //get years to show /*array_combine($years, $years)*/
+	  		'years' => $this->getYears(1920, 2050), //get years to show 
 	  		'months' => $this->getMonths(), //get months to show
 	 		'label' => 'Date of Birth'
 	  )
@@ -165,9 +168,47 @@ class AttendeeForm extends BaseAttendeeForm
 	$this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->validatorSchema['profile_id'] = new sfValidatorPass();
        
+        //get attendee division discipline id
+        //$this->attendee = Doctrine_Core::getTable('Attendee')->find(array($request->getParameter('id')));
+       
+//$this->setDefaults(array('flight_datetime' => array('month' => 1, 'day' => 1, 'year' => 2011)));
+
+       
         
+        //till here 
+        /*
+        $this->setValidator('first_name', new sfValidatorString(
+	         array('required' => true, 'min_length' => 2, 'max_length' => 45), 
+	         array('min_length' => 'Your first name must have at least 2 characters.', 
+	               'max_length' => 'Your username cannot be longer than 45 characters.')
+        ));*/
+        //first_name and last_name not blank
+        /*
+	 $this->setValidator('first_name', new sfValidatorAnd(array(
+	     new sfValidatorString(
+	         array('required' => true, 'min_length' => 2, 'max_length' => 45), 
+	         array('min_length' => 'Your first name must have at least 2 characters.', 
+	        	  'max_length' => 'Your username cannot be longer than 45 characters.')
+	         ),
+	     new sfValidatorRegex(
+	         array('pattern' => '/^[A-Za-z]*$/i'),
+	         array('invalid' => 'Your first name can only have letters (a-z)')
+	         ),
+	 ), array(), array('required' => 'Please enter a first name.')));
+         
+	 $this->setValidator('last_name', new sfValidatorAnd(array(
+	     new sfValidatorString(
+	         array('required' => true, 'min_length' => 2, 'max_length' => 45), 
+	         array('min_length' => 'Your last name must have at least 2 characters.', 
+	        	  'max_length' => 'Your last name cannot be longer than 45 characters.')
+	         ),
+	     new sfValidatorRegex(
+	         array('pattern' => '/^[A-Za-z]*$/i'),
+	         array('invalid' => 'Your last name can only have letters (a-z).')
+	         ),
+	 ), array(), array('required' => 'Please enter a last name.')));
         
-        
+        */
         //omg
         // $this->setDefaults(array('flight_datetime' => array('month' => 1, 'day' => 1, 'year' => 2011),
         //                        'flight_time' => array('hour' => 0, 'minute' => 0)));
