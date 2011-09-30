@@ -85,6 +85,13 @@ Attendee:
       primary: false
       notnull: false
       autoincrement: false
+    flight_time:
+      type: time
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     flight_number:
       type: string(45)
       fixed: false

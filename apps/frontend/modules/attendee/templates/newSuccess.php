@@ -1,7 +1,9 @@
 
 
 <div class="login-box">
-		<h2 class="header-padding">Add Attendee<span class="logout"><a href="<?php echo url_for("@sf_guard_signout") ?>">Logout</a></span></h2>
+    <h2 class="header-padding">Add Attendee<span class="logout">
+            
+            <a href="<?php echo url_for("@sf_guard_signout") ?>">Logout </a>&nbsp; &nbsp; &nbsp; <span style="color: #778092">|</span> &nbsp; &nbsp; &nbsp;<a  href="<?php echo url_for("@atten"); ?>">Back</a></span></h2>
 		<div class="login-left  no-border">
 			
 			<form id="add-form" class="form label-inline uniform" method="post" action="<?php echo url_for("@atten_create") ?>">
@@ -111,9 +113,9 @@
 
         
         <div class="field">
-                <?php echo $form['flight_datetime']->renderLabel('Arrival Time') ?>
-                <?php echo $form['flight_datetime']->render() ?>
-                <?php echo $form['flight_datetime']->renderError() ?>
+                <?php echo $form['flight_time']->renderLabel('Arrival Time') ?>
+                <?php echo $form['flight_time']->render() ?>
+                <?php echo $form['flight_time']->renderError() ?>
         
         
         </div>

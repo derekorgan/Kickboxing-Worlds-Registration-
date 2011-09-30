@@ -1,7 +1,7 @@
 
 
 <div class="login-box">
-		<h2 class="header-padding">Edit Attendee<span class="logout"><a href="<?php echo url_for("sf_guard_signout") ?>">Logout</a></span></h2>
+		<h2 class="header-padding">Edit Attendee<span class="logout"><a href="<?php echo url_for("sf_guard_signout") ?>">Logout</a> &nbsp; &nbsp; &nbsp; <span style="color: #778092">|</span> &nbsp; &nbsp; &nbsp;<a  href="<?php echo url_for("@atten"); ?>">Back</a></span></h2></span></h2>
 		<div class="login-left  no-border">
 			
 
@@ -83,14 +83,27 @@
                 <?php echo $form['accomodation']->renderError() ?>
 
 </div>
-							
-							<div id="share-input1">
-								<div class="field"><label for="sharew">Sharing With: </label> <input type="text" class="medium" size="20" name="sharew" id="sharew"></div>
+	
+        
+        
+		<div id="share-input1">
+			
+                    
+                    <div class="field">
+                       <?php echo $form['sharing_with1']->renderLabel('Sharing with: ') ?>
+                       <?php echo $form['sharing_with1']->render() ?>
+                       <?php echo $form['sharing_with1']->renderError() ?>
+                    
+                    </div>
 							</div>
 							
-							<div id="share-input2">
-								<div class="field"><label for="sharew2">&nbsp;&nbsp;&nbsp;&nbsp; </label> <input type="text" class="medium" size="20" name="sharew2" id="sharew2"></div>
-							</div>	
+		<div id="share-input2">
+			<div class="field">
+                       <?php echo $form['sharing_with2']->renderLabel('-') ?>
+                       <?php echo $form['sharing_with2']->render() ?>
+                       <?php echo $form['sharing_with2']->renderError() ?>
+                        </div>
+		</div>	
 									
 							<div id="share-input3">
 								<div class="field"><label for="sharew2">&nbsp;&nbsp;&nbsp;&nbsp; </label> <input type="text" class="medium" size="20" name="sharew3" id="sharew3"></div>

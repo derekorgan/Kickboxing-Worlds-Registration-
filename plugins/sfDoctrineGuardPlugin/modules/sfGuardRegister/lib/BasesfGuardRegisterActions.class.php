@@ -14,6 +14,7 @@ class BasesfGuardRegisterActions extends sfActions
 
     if ($request->isMethod('post'))
     {
+      
       $this->form->bind($request->getParameter($this->form->getName()));
       if ($this->form->isValid())
       {
@@ -27,7 +28,9 @@ class BasesfGuardRegisterActions extends sfActions
         $profile->setFirstName($user->getFirstName());
         $profile->setLastName($user->getLastName());
         $profile->setEmailAddress($user->getEmailAddress());
-        $profile->setCountry();
+        
+        $post_params = $request->getPostParameters();
+        $profile->setCountry($post_params['sf_guard_user']['country']);
         
         $profile->save();
         

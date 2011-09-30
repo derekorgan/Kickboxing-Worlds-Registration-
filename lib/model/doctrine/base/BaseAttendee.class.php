@@ -18,6 +18,7 @@ Doctrine_Manager::getInstance()->bindComponent('Attendee', 'doctrine');
  * @property string $sharing_with1
  * @property string $sharing_with2
  * @property timestamp $flight_datetime
+ * @property time $flight_time
  * @property string $flight_number
  * @property integer $visa
  * @property date $dob
@@ -38,6 +39,7 @@ Doctrine_Manager::getInstance()->bindComponent('Attendee', 'doctrine');
  * @method string    getSharingWith1()    Returns the current record's "sharing_with1" value
  * @method string    getSharingWith2()    Returns the current record's "sharing_with2" value
  * @method timestamp getFlightDatetime()  Returns the current record's "flight_datetime" value
+ * @method time      getFlightTime()      Returns the current record's "flight_time" value
  * @method string    getFlightNumber()    Returns the current record's "flight_number" value
  * @method integer   getVisa()            Returns the current record's "visa" value
  * @method date      getDob()             Returns the current record's "dob" value
@@ -57,6 +59,7 @@ Doctrine_Manager::getInstance()->bindComponent('Attendee', 'doctrine');
  * @method Attendee  setSharingWith1()    Sets the current record's "sharing_with1" value
  * @method Attendee  setSharingWith2()    Sets the current record's "sharing_with2" value
  * @method Attendee  setFlightDatetime()  Sets the current record's "flight_datetime" value
+ * @method Attendee  setFlightTime()      Sets the current record's "flight_time" value
  * @method Attendee  setFlightNumber()    Sets the current record's "flight_number" value
  * @method Attendee  setVisa()            Sets the current record's "visa" value
  * @method Attendee  setDob()             Sets the current record's "dob" value
@@ -176,6 +179,14 @@ abstract class BaseAttendee extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => 25,
+             ));
+        $this->hasColumn('flight_time', 'time', null, array(
+             'type' => 'time',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
              ));
         $this->hasColumn('flight_number', 'string', 45, array(
              'type' => 'string',

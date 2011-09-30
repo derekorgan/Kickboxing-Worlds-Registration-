@@ -53,11 +53,14 @@ class attendeeActions extends sfActions
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
-
+    
     $this->form = new AttendeeForm();
     $postparam = $request->getPostParameters();
     $div_id = $postparam['attendee']['division_id'];
     
+    
+    //add check here
+    //die("NEEDS FIX CREATE ACTION");
     //die(print_r($request->getPostParameters()));
     $post_disc = $postparam['attendee']['discipline'];
     //die(var_dump($post_disc));
@@ -66,22 +69,16 @@ class attendeeActions extends sfActions
     //$this->form['profile_id'] = $this->getUser()->getGuardUser()->getId();
     $division = Doctrine_Core::getTable('Division')->find(array($div_id));
     if($division) {
+        
         $division->setDisciplineId($post_disc);
     
         $division->save();
     }
     
     $this->processForm($request, $this->form);
+    
 
-    $this->setTemplate('new');
-      /*
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
-
-    $this->form = new AttendeeForm();
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('new');*/
+    $this->redirect('attendee/index');
   }
 
   public function executeEdit(sfWebRequest $request)

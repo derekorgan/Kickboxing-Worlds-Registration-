@@ -18,9 +18,9 @@
     
     
     <div class="field">
-        <?php /* echo $form['country']->renderLabel() ?>
+        <?php echo $form['country']->renderLabel() ?>
         <?php echo $form['country']->render() ?>
-        <?php echo $form['country']->renderError()  */ ?>
+        <?php echo $form['country']->renderError()   ?>
     </div>
     
     

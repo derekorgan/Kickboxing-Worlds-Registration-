@@ -50,7 +50,11 @@ class sfGuardRegisterForm extends BasesfGuardRegisterForm
                               'invalid' => 'This email is not valid.'
 	  )));
           
-          
+      
+      //country
+      $this->widgetSchema['country'] = new sfWidgetFormInputText(array()
+      );
+      $this->validatorSchema['country'] = new sfValidatorPass();
       
       
   }
