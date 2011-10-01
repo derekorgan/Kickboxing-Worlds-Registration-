@@ -3,8 +3,8 @@
 
 
 <div class="login-box">
-	<h2 class="header-padding">Add Attendee<span class="logout"><a href="<?php echo url_for("sf_guard_signout") ?>">Logout</a> &nbsp; &nbsp; &nbsp; <span style="color: #778092">|</span> &nbsp; &nbsp; &nbsp;<a  href="<?php echo url_for("@attendee"); ?>">Back</a></span></h2></span></h2>
-<div class="login-left  no-border">
+	<h2 class="header-padding"><?php echo $msg ?><span class="logout"><a href="<?php echo url_for("sf_guard_signout") ?>">Logout</a> &nbsp; &nbsp; &nbsp; <span style="color: #778092">|</span> &nbsp; &nbsp; &nbsp;<a  href="<?php echo url_for("@attendee"); ?>">Back</a></span></h2></span></h2>
+<!-- <div class="login-left  no-border"> -->
 
 
 <form id="add-form" class="form label-inline uniform" action="<?php echo url_for('attendee/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
@@ -27,7 +27,7 @@
         
         
              <div class="field">
-        <?php echo $form['first_name']->renderLabel() ?>
+        <?php echo $form['first_name']->renderLabel('First Name') ?>
         
           
           <?php echo $form['first_name'] ?>
@@ -35,7 +35,7 @@
         </div>
  
       <div class="field">
-        <?php echo $form['last_name']->renderLabel() ?>
+        <?php echo $form['last_name']->renderLabel('Last Name') ?>
         
           
           <?php echo $form['last_name'] ?>
@@ -61,13 +61,15 @@
         
 
 <div id="compeditor-info">
-    <div class="field">
-        <?php echo $form['sex']->renderLabel() ?>
-        
-         
-          <?php echo $form['sex'] ?>
-         <?php echo $form['sex']->renderError() ?>
-        </div>
+
+
+     <div class="field">               
+		<?php echo $form['sex']->renderLabel('Sex') ?>
+		<?php echo $form['sex'] ?>
+		<?php echo $form['sex']->renderError() ?>
+	</div>
+
+	
     
 <div class="field">
         <?php echo $form['discipline']->renderLabel('Discipline') ?>
@@ -169,18 +171,13 @@
     
       
       
-		<div class="controlset field">
+		
                     
-		<span class="label">Visa Required?</span> 
+		<?php echo $form['visa']->renderLabel('Visa') ?>
+		<?php echo $form['visa'] ?>
+		<?php echo $form['visa']->renderError() ?>
 
-			<?php echo $form['visa']->render() ?>	
-                 <?php /* NEEDED
-		<div class="radio" id="uniform-radio1"><span><input type="radio" value="1" id="radio1" name="radio1" class="radio-label" style="opacity: 0;"></span></div><label for="radio1" class="radio-label">Yes</label>
-
-		<div class="radio" id="uniform-radio2"><span><input type="radio" value="1" id="radio2" name="radio1" class="radio-label" style="opacity: 0;"></span></div><label for="radio2" class="radio-label">No</label>
-                        */ ?>
-
-		</div>	
+	
       
         <div id="visa-info" style="display: none">
       <div class="field">
@@ -216,8 +213,8 @@
 </form>
 
     
-</div>
-</div>
+<!-- </div> -->
+</div> 
 
 <?php /*
 <script type="text/javascript">
@@ -239,18 +236,24 @@
      
     $("#attendee_discipline").change(function() {
 
-    var id = $("#attendee_discipline").val();
+    var id = parseInt($("#attendee_discipline").val());
     
     //alert(id);
     
-    aj_url ="ajax?id=" + id;
+    aj_url ="/kickboxing/web/attendee/ajax?id=" + id;
     $.ajax({
                 url: aj_url,
                 dataType: 'html',
                 type: 'GET',
                 success: function(data) {
                     $("#attendee_division_id").html(data);
-                    $('#attendee_division_id').attr("disabled", false);  
+                    
+                    if($("#attendee_discipline").val() == 0) {
+                         $('#attendee_division_id').attr("disabled", true);  
+                    } else {
+                         $('#attendee_division_id').attr("disabled", false);  
+                    }
+                   
                 }
     });
     

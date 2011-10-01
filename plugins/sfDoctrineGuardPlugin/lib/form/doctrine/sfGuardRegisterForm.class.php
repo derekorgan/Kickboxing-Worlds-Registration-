@@ -18,32 +18,32 @@ class sfGuardRegisterForm extends BasesfGuardRegisterForm
               
         $this->setValidator('username', new sfValidatorAnd(array(
 		     new sfValidatorString(
-		         array('required' => true, 'min_length' => 4, 'max_length' => 20), 
-		         array('min_length' => 'Your username must have at least 4 characters.', 
+		         array('required' => true, 'min_length' => 3, 'max_length' => 20), 
+		         array('min_length' => 'Your username must have at least 3 characters.', 
                                'max_length' => 'Your username cannot be longer than 20 characters.')
-		         ),
+		         )/*,
 		     new sfValidatorRegex(
 		         array('pattern' => '/^[A-Za-z0-9]*$/i'),
 		         array('invalid' => 'Your username can only have letters (A-Z) or numbers (0-9).')
-		         ),
+		         ),*/
          ), array(), array('required' => 'Please enter a username.')));
 		 
 		 
-		 
+		/* 
          $this->setValidator('first_name', new sfValidatorRegex(
-	        array('pattern' => '/^[A-Za-z0-9]*$/i'),
-	        array('invalid' => 'Your first name can only have letters (A-Z) or numbers (0-9).' ,
+	        //array('pattern' => '/^[A-Za-z0-9]*$/i'),
+	        array(//'invalid' => 'Your first name can only have letters (A-Z) or numbers (0-9).' ,
                        'required' => 'First name is required.'
 	 )));
          
 		
 	        
          $this->setValidator('last_name', new sfValidatorRegex(
-	         array('pattern' => '/^[A-Za-z0-9]*$/i'),
-	         array('invalid' => 'Your last name can only have letters (A-Z) or numbers (0-9).' ,
+	         //array('pattern' => '/^[A-Za-z0-9]*$/i'),
+	         array(//'invalid' => 'Your last name can only have letters (A-Z) or numbers (0-9).' ,
                        'required' => 'Last name is required.')
 	     ));
-	     
+	     */
 	  $this->setValidator('email_address', new sfValidatorEmail(
 			array(), 
 			array('required' => 'Please enter an email.',

@@ -1,6 +1,6 @@
 type:
-  compeditor:
-    name: Compeditor
+  competitor:
+    name: Competitor
   coach:
     name: Coach
   staff:

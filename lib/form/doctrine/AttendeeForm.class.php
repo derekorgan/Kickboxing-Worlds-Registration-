@@ -67,25 +67,25 @@ class AttendeeForm extends BaseAttendeeForm
       }
       
       $new_disc = array();
+      $new_disc[0] = 'Select One';
       foreach($discs as $key => $value) 
       {
           $new_disc[$value] = $key;
       }
       
       
-      $fin = array('Discipline' => $new_disc);
-      
-      
       $this->widgetSchema['discipline'] = new sfWidgetFormChoice(array(
-		'choices' => $fin)
+		'choices' => $new_disc,
+                /*'add_empty' => 'Select One'*/)
       );
       
       $this->validatorSchema['discipline'] = new sfValidatorPass();  
       
-      
-      
-      
-      
+      $this->widgetSchema['sex'] = new sfWidgetFormChoice(array(
+				'choices' => array('Male' => 'Male', 'Female' => 'Female'),
+				'expanded' => true)
+	  );
+      $this->setDefault('sex', 'Male');
       
       
       
@@ -109,7 +109,7 @@ class AttendeeForm extends BaseAttendeeForm
 
       }
       $this->widgetSchema['division_id'] = new sfWidgetFormChoice(array(
-		'choices' => array('0' => 'Division'))
+		'choices' => array('0' => 'Select One'))
       );
       
       
@@ -129,8 +129,9 @@ class AttendeeForm extends BaseAttendeeForm
 
 	$this->widgetSchema['flight_datetime'] = new sfWidgetFormDate(
 	  array(//'format' => '%year% - %month% - %day%',
-                    'format' => '%month% - %day%',
+                    //'format' => '%month% - %day%',
 	  		'months' => $this->getMonths(), //get months to show
+                        'years' => $this->getYears(2011, 2020),
 	 		'label' => 'Date of Birth'
 	  )
 	);

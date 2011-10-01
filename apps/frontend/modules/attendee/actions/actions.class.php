@@ -49,7 +49,8 @@ class attendeeActions extends sfActions
 	$q = Doctrine::getTable('Division')
 	     ->createQuery('u')
 	     ->select('u.category as category')
-             ->Where('u.discipline_id = ?', $request->getParameter('id'));
+             ->Where('u.discipline_id = ?', $request->getParameter('id'))
+             ->andWhere('u.status = ?', 1);
         
         $this->divisions = $q->execute();
         
@@ -69,6 +70,7 @@ class attendeeActions extends sfActions
     
     
   }
+
 
   public function executeCreate(sfWebRequest $request)
   {
@@ -94,10 +96,16 @@ class attendeeActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
+      
+     $this->profile_id = $this->getProfileId();
+      
+     //$this->forward404Unless($attendee = Doctrine_Core::getTable('Attendee')->findOneByProfileId(array($this->profile_id)), sprintf('Object address does not exist.'));
+    //$this->forward404Unless($address = Doctrine_Core::getTable('Address')->findOneByUserId(array($this->id)), sprintf('Object address does not exist (%s).', $request->getParameter('id')));
     $this->forward404Unless($attendee = Doctrine_Core::getTable('Attendee')->find(array($request->getParameter('id'))), sprintf('Object attendee does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($attendee->getProfileId() == $this->profile_id);
     
-    $this->profile_id = $attendee->getProfileId();
-    $this->form = new AttendeeForm($attendee);
+    
+     $this->form = new AttendeeForm($attendee);
   }
 
   public function executeUpdate(sfWebRequest $request)
@@ -118,7 +126,13 @@ class attendeeActions extends sfActions
   {
     //$request->checkCSRFProtection();
 
+     $this->profile_id = $this->getProfileId();
+     
+     
+      
     $this->forward404Unless($attendee = Doctrine_Core::getTable('Attendee')->find(array($request->getParameter('id'))), sprintf('Object attendee does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($attendee->getProfileId() == $this->profile_id);
+    
     $attendee->delete();
 
     $this->redirect('attendee/index');
@@ -131,7 +145,7 @@ class attendeeActions extends sfActions
     {
       $attendee = $form->save();
 
-      $this->redirect('attendee/edit?id='.$attendee->getId());
+      $this->redirect('attendee/index');
     }
   }
 }

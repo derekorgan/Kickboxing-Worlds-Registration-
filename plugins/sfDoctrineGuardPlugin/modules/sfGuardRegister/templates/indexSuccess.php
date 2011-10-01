@@ -6,7 +6,7 @@
 
 
             
-		<h2 class="header-padding">Create Account</h2>
+		<h2 class="header-padding">Create Account<a style="float: right; color: black" href="<?php echo url_for("@sf_guard_signin"); ?>">&lt; Back</a></h2>
 		<div class="login-left">
                     
                     <?php echo get_partial('sfGuardRegister/form', array('form' => $form)) ?>

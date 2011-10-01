@@ -20,7 +20,7 @@
 			<td><?php echo $attendee->getType() ?></td>
 			<td colspan="2">
                             
-                          <?php if($attendee->getType() == 'Competitor'): ?>
+                          <?php if($attendee->getType() == 'Compeditor' or $attendee->getType() == 'Competitor'): ?>
                             
                             
                             <?php if($attendee->getDivision()->getDiscipline()->getSex() != NULL): ?>
@@ -50,7 +50,7 @@
 	</tbody>
 </table>
 <br>
-<div class="buttonrow"><a style="text-align: center" class="btn btn-black btn-login" href="<?php echo url_for("@attendee_new") ?>">Add Attendee</a></div>
+<div class="buttonrow"><a style="text-align: center; text-decoration: none" class="btn btn-black btn-login" href="<?php echo url_for("@attendee_new") ?>">Add Attendee</a></div>
 			
 		</div>
 

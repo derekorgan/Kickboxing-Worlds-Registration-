@@ -47,6 +47,20 @@ class sfWidgetFormChoice extends sfWidgetFormChoiceBase
     $this->addOption('renderer_class', false);
     $this->addOption('renderer_options', array());
     $this->addOption('renderer', false);
+    
+    //Added by D.N.
+    $this->addOption('add_empty', false);
+  }
+  
+  
+  //added by D.N. 
+public function getChoices()
+  {
+    $choices = parent::getChoices();
+    if ($this->getOption('add_empty') !== false) {
+        return array_merge(array(''=>$this->getOption('add_empty')?$this->getOption('add_empty'):''),$choices);
+    }
+    return $choices;
   }
 
   /**

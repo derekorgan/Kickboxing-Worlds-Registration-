@@ -124,17 +124,3 @@ img.avatar_img
 	
 .reports_table td { padding: 5px; }
 
-
-.form ul
-{
-    clear: both;
-    list-style: none;
-    margin: 0 0;
-    margin-left: 150px;
-}
-
-.form ul li
-{
-    list-style: none;
-    margin: 0 0;
-}

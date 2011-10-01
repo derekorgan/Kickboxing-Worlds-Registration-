@@ -1,12 +1,12 @@
 discipline:
-    lc_m:
-        id: 1
-        name: Light Contact
-        sex: Male
-    lc_f:
-        id: 2
-        name: Light Contact
-        sex: Female
+#    lc_m:
+#        id: 1
+#        name: Light Contact
+#        sex: Male
+#    lc_f:
+#        id: 2
+#        name: Light Contact
+#        sex: Female
     fc_m:
         id: 3
         name: Full Contact
@@ -23,20 +23,30 @@ discipline:
         id: 6
         name: Simi-Contact
         sex: Female
-    slf_m:
-        id: 7
-        name: Simi-Light Forms
-        sex: Male
-    slf_f:
-        id: 8
-        name: Simi-Light Forms
-        sex: Female
-    lk_m:
-        id: 9
-        name: Low Kick
-        sex: Male
-    lk_f:
-        id: 10
-        name: Low Kick
-        sex: Female
+#    slf_m:
+#        id: 7
+#        name: Simi-Light Forms
+#        sex: Male
+#    slf_f:
+#        id: 8
+#        name: Simi-Light Forms
+#        sex: Female
+#    lk_m:
+#        id: 9
+#        name: Low Kick
+#        sex: Male
+#    lk_f:
+#        id: 10
+#        name: Low Kick
+#        sex: Female
+    mf_m:
+       id: 11
+       name: Low Kick
+       sex: Female
+
+    mf_f:
+       id: 12
+       name: Low Kick
+       sex: Female
+
 

@@ -96,14 +96,35 @@
        -->
        
 		<script type="text/javascript">
-			
-				$('#attendee_type_id').change(function() {
-    				   ($(this).val() == 1) ? $('#compeditor-info').show() : $('#compeditor-info').hide();
-				});
+                    $(document).ready(function() {
+                            if($('#attendee_type_id').val() == 1) {
+                                $('#compeditor-info').show() 
+                            } else {
+                                $('#compeditor-info').hide()
+                            }
+                    });
+                    
+                    $('#attendee_type_id').change(function() {
+    		           ($(this).val() == 1) ? $('#compeditor-info').show() : $('#compeditor-info').hide();
+		    });
+
  		</script>
        
        
 		<script type="text/javascript">
+                    
+                        $(document).ready(function() {
+                            if($('#attendee_accomodation').val() == "Double") {
+                                $('#share-input1').show() 
+                            }
+                            if($('#attendee_accomodation').val() == "Triple") {
+                                $('#share-input1').show() 
+                                $('#share-input2').show()
+                            }
+                        });
+                        
+                        
+                        
 				$('#attendee_accomodation').change(function() {
 	    				($(this).val() == "Double") ? $('#share-input1').show() :  $('#share-input1').hide();
 				});
@@ -118,6 +139,8 @@
  		</script>
        
        <script type="text/javascript">
+           
+           
 			$('#add-form').change(function() {
 			    if ($('#attendee_visa_1').attr('checked')) {
 			        $('#visa-info').show();
@@ -127,7 +150,17 @@
 			});
 
        </script>
-
+       
+       
+               <script type="text/javascript">
+               $(document).ready(function() {
+                            if ($('#attendee_visa_1').attr('checked')) {
+			        $('#visa-info').show();
+			    } else {
+			        $('#visa-info').hide();
+			    }
+                });
+ </script>
        
   </body>
 </html>

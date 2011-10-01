@@ -20,7 +20,7 @@
 	<?php /* <form action="createaccount.html" method="post">   
                             <button class="btn btn-black btn-login">Create Account</button>  */ ?>
                             
-                            <a style="text-align: center" class="btn btn-black btn-login" href="<?php echo url_for('sf_guard_register'); ?>">Create Account</a>
+                            <a style="text-align: center; text-decoration: none" class="btn btn-black btn-login" href="<?php echo url_for('sf_guard_register'); ?>">Create Account</a>
                 <?php /*    </form>*/  //why post request? why form for a link? ?>
 
             </div>
