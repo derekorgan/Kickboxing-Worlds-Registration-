@@ -24,9 +24,9 @@ Doctrine_Manager::getInstance()->bindComponent('Discipline', 'doctrine');
  * @method Discipline          setDivisionsDisc()    Sets the current record's "Divisions_Disc" collection
  * @method Discipline          setEventDisciplines() Sets the current record's "EventDisciplines" collection
  * 
- * @package    my_derek
+ * @package    kickboxing
  * @subpackage model
- * @author     Your name here
+ * @author     Derek Organ
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseDiscipline extends sfDoctrineRecord

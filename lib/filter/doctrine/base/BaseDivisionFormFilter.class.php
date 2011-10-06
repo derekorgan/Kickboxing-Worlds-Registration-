@@ -3,9 +3,9 @@
 /**
  * Division filter form base class.
  *
- * @package    my_derek
+ * @package    kickboxing
  * @subpackage filter
- * @author     Your name here
+ * @author     Derek Organ
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseDivisionFormFilter extends BaseFormFilterDoctrine

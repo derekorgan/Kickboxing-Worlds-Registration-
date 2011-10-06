@@ -69,9 +69,9 @@ Doctrine_Manager::getInstance()->bindComponent('Attendee', 'doctrine');
  * @method Attendee  setType()            Sets the current record's "Type" value
  * @method Attendee  setProfile()         Sets the current record's "Profile" value
  * 
- * @package    my_derek
+ * @package    kickboxing
  * @subpackage model
- * @author     Your name here
+ * @author     Derek Organ
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseAttendee extends sfDoctrineRecord

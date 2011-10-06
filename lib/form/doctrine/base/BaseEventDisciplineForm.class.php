@@ -5,9 +5,9 @@
  *
  * @method EventDiscipline getObject() Returns the current form's model object
  *
- * @package    my_derek
+ * @package    kickboxing
  * @subpackage form
- * @author     Your name here
+ * @author     Derek Organ
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseEventDisciplineForm extends BaseFormDoctrine
