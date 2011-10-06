@@ -4,6 +4,15 @@
 # default rules
 
 
+sf_guard_forgot_password: #works
+  url:    /forgot_password
+  param:  { module: sfGuardForgotPassword, action: index }
+#sf_guard_password: 
+  #url:   /request_password
+  #param: { module: sfGuardAuth, action: password }
+
+
+
 ajax:
   url:   /ajax/:discipline_id
   param: { module: attendee, action: ajax }
@@ -19,6 +28,12 @@ atten_delete:
 atten:
   url:   /attendee
   param: { module: attendee, action: index }
+
+
+
+
+
+
 
 sf_guard_register:
   url:   /register

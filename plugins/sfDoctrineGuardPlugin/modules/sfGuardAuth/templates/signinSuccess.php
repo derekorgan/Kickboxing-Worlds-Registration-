@@ -3,14 +3,23 @@
 
 
 		<h2 class="header-padding">World Kick Boxing Championship 2011 Registration</h2>
-		<div class="login-left">
-			
+                
+                
+              <?php if($sf_user->hasFlash('notice')): ?>
+                    <div class="capt-err success">
+                      <?php echo $sf_user->getFlash('notice');?>
+                    </div>
+             <?php endif; ?>
                     
+                
+		<div class="login-left" style="margin-top: 20px">
+                    
+
                     <?php echo get_partial('sfGuardAuth/signin_form', array('form' => $form)) ?>
                      
 		</div>
 		
-		<div class="login-right">
+		<div class="login-right" style="margin-top: 20px">
 			<h3>Create an account to register attendees.</h3>
 
 

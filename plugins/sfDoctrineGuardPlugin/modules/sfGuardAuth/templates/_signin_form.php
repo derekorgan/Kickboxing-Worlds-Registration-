@@ -19,7 +19,9 @@
     
   <div><?php echo $form['_csrf_token']->render() ?></div>
   
-  <div class="buttonrow"><input class="btn btn-black btn-login" type="submit" value="<?php echo __('Login', null, 'sf_guard') ?>" /></div>
+  <div class="buttonrow"><input class="btn btn-black btn-login" type="submit" value="<?php echo __('Login', null, 'sf_guard') ?>" />
+      <!-- <div style="text-align: right; margin-top: 3px;"><a href="<?php echo url_for("@sf_guard_forgot_password") ?>">Forgot password?</a></div>-->
+  </div>
     
     <?php /* ?>
   <table>

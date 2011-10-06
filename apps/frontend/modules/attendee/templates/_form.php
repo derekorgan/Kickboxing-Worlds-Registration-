@@ -43,7 +43,7 @@
         
       </div>
       <div class="field">
-        <?php echo $form['club_name']->renderLabel() ?>
+        <?php echo $form['club_name']->renderLabel('Club Name') ?>
         
           
           <?php echo $form['club_name'] ?>
@@ -51,7 +51,7 @@
       </div>
         
        <div class="field">
-        <?php echo $form['type_id']->renderLabel() ?>
+        <?php echo $form['type_id']->renderLabel('Type of Attendee') ?>
         
           
           <?php echo $form['type_id'] ?>
@@ -96,7 +96,7 @@
 	<legend>Accomodation</legend>
         
       <div class="field">
-        <?php echo $form['accomodation']->renderLabel() ?>
+        <?php echo $form['accomodation']->renderLabel('Type of Accomodation') ?>
         
           
           <?php echo $form['accomodation'] ?>
@@ -106,7 +106,7 @@
         
         <div id="share-input1">
           <div class="field">
-        <?php echo $form['sharing_with1']->renderLabel() ?>
+        <?php echo $form['sharing_with1']->renderLabel('Sharing With:') ?>
         
         
           <?php echo $form['sharing_with1'] ?>
@@ -117,7 +117,7 @@
         
         <div id="share-input2">
       <div class="field">
-        <?php echo $form['sharing_with2']->renderLabel() ?>
+        <?php echo $form['sharing_with2']->renderLabel('-') ?>
         
           
           <?php echo $form['sharing_with2'] ?>
@@ -161,7 +161,7 @@
         </div>
       
       <div class="field">
-        <?php echo $form['flight_number']->renderLabel() ?>
+        <?php echo $form['flight_number']->renderLabel('Flight No.') ?>
         
          
           <?php echo $form['flight_number'] ?>
