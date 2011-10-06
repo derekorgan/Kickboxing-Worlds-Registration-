@@ -15,8 +15,8 @@
 		</div>
 		
 		<div class="login-right">
-			<h4>Please fill in some information about yourself an we will send you an email to confirm your login details.</h4>
-			<h4>When your login details are confirmed you can access your account at anytime to register attendees.</h4>
+
+			<h4>In order to create an account you will need the token that was sent to you by the event organizer. If you have not recieved this, please get in touch with us.</h4>
 		</div>
                 
 

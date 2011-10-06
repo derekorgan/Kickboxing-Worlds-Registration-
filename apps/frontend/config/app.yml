@@ -2,4 +2,5 @@
 # http://www.symfony-project.org/reference/1_4/en/11-App
 
 # default values
-#all:
+all:
+  event_id: 1 #related to token. used by sfGuardRegisterForm.class.php to compare with entered token

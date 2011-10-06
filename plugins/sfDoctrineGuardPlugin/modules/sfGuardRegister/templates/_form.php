@@ -56,6 +56,13 @@
     </div>
     
     
+    <div class="field">
+        <?php echo $form['token']->renderLabel('Token') ?>
+        <?php echo $form['token']->render() ?>
+        <?php echo $form['token']->renderError() ?>
+    </div>
+    
+    
     <div><?php echo $form['_csrf_token']->render() ?></div>
     
     

@@ -5,3 +5,4 @@ It is build on PHP Symfony 1.4 and MySQL
 NOTICE:
  - Event table: field event_id is hardcoded in sfGuardRegister 
 	         action (path: plugins/sfDoctrineGuard/modules/sfGuardRegister/actions)
+ - If this is to be used for another event then the event_discipline connection will need to be coded. The idea here is that each event should have a list of active disciplines. In the form it should only show disciplines that are in this link table i.e. active and of course all sub-divisions too. 
