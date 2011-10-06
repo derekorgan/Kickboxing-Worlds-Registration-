@@ -10,6 +10,7 @@
  * @property date $starts
  * @property date $ends
  * @property date $register_by
+ * @property string $token
  * @property Doctrine_Collection $Disciplines_E
  * @property Doctrine_Collection $Profiles_E
  * @property Doctrine_Collection $EventDisciplines
@@ -19,6 +20,7 @@
  * @method date                getStarts()           Returns the current record's "starts" value
  * @method date                getEnds()             Returns the current record's "ends" value
  * @method date                getRegisterBy()       Returns the current record's "register_by" value
+ * @method string              getToken()            Returns the current record's "token" value
  * @method Doctrine_Collection getDisciplinesE()     Returns the current record's "Disciplines_E" collection
  * @method Doctrine_Collection getProfilesE()        Returns the current record's "Profiles_E" collection
  * @method Doctrine_Collection getEventDisciplines() Returns the current record's "EventDisciplines" collection
@@ -27,6 +29,7 @@
  * @method Event               setStarts()           Sets the current record's "starts" value
  * @method Event               setEnds()             Sets the current record's "ends" value
  * @method Event               setRegisterBy()       Sets the current record's "register_by" value
+ * @method Event               setToken()            Sets the current record's "token" value
  * @method Event               setDisciplinesE()     Sets the current record's "Disciplines_E" collection
  * @method Event               setProfilesE()        Sets the current record's "Profiles_E" collection
  * @method Event               setEventDisciplines() Sets the current record's "EventDisciplines" collection
@@ -56,6 +59,10 @@ abstract class BaseEvent extends sfDoctrineRecord
              ));
         $this->hasColumn('register_by', 'date', null, array(
              'type' => 'date',
+             ));
+        $this->hasColumn('token', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
              ));
     }
 

@@ -197,6 +197,7 @@ Event:
     starts: { type: date }
     ends: { type: date }
     register_by: { type: date }
+    token: { type: string(255) }
 
 Profile:
   columns:

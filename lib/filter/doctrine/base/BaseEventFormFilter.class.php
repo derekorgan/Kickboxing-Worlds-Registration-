@@ -18,6 +18,7 @@ abstract class BaseEventFormFilter extends BaseFormFilterDoctrine
       'starts'             => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'ends'               => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'register_by'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'token'              => new sfWidgetFormFilterInput(),
       'disciplines_e_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Discipline')),
     ));
 
@@ -27,6 +28,7 @@ abstract class BaseEventFormFilter extends BaseFormFilterDoctrine
       'starts'             => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'ends'               => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'register_by'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
+      'token'              => new sfValidatorPass(array('required' => false)),
       'disciplines_e_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Discipline', 'required' => false)),
     ));
 
@@ -71,6 +73,7 @@ abstract class BaseEventFormFilter extends BaseFormFilterDoctrine
       'starts'             => 'Date',
       'ends'               => 'Date',
       'register_by'        => 'Date',
+      'token'              => 'Text',
       'disciplines_e_list' => 'ManyKey',
     );
   }

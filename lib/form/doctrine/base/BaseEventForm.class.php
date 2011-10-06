@@ -21,6 +21,7 @@ abstract class BaseEventForm extends BaseFormDoctrine
       'starts'             => new sfWidgetFormDate(),
       'ends'               => new sfWidgetFormDate(),
       'register_by'        => new sfWidgetFormDate(),
+      'token'              => new sfWidgetFormInputText(),
       'disciplines_e_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Discipline')),
     ));
 
@@ -31,6 +32,7 @@ abstract class BaseEventForm extends BaseFormDoctrine
       'starts'             => new sfValidatorDate(array('required' => false)),
       'ends'               => new sfValidatorDate(array('required' => false)),
       'register_by'        => new sfValidatorDate(array('required' => false)),
+      'token'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'disciplines_e_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Discipline', 'required' => false)),
     ));
 
