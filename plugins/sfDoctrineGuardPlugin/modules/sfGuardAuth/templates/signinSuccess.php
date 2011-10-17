@@ -19,6 +19,7 @@
                      
 		</div>
 		
+                <?php //if(!$sf_user->hasCredential('admin')) ?>
 		<div class="login-right" style="margin-top: 20px">
 			<h3>Create an account to register attendees.</h3>
 
@@ -36,6 +37,7 @@
                         
                         
 		</div>
+                <?php //endif; ?>
 
 
 

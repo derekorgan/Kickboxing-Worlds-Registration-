@@ -1,0 +1,45 @@
+attendee:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                attendee
+    module:               attendee
+    prefix_path:          /attendee
+    column:               id
+    with_wildcard_routes: true
+
+
+sf_guard_plugin_success_signin_url:
+  url: /attendee
+  param: { module: attendee, action: index }
+
+sf_guard_forgot_password:
+  url: /forgot_pw
+  param: { module: sfGuardForgotPassword, action: index }
+
+
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: adminsignin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+atten:
+  url:   /attendee
+  param: { module: attendee, action: index }
+
+default:
+  url: /
+  param: { module: sfGuardAuth, action: adminsignin }
+
+
+# generic rules
+# please, remove them by adding more specific rules
+#default_index:
+ # url:   /:module
+ # param: { action: index }
+
+#default:
+ # url:   /:module/:action/*

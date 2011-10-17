@@ -1,5 +1,11 @@
 <div class="login-box">
-	<h2 class="header-padding">Registered Attendees<span class="logout"><a href="<?php echo url_for("sf_guard_signout") ?>">Logout</a></span></h2>
+	<h2 class="header-padding">Registered Attendees<span class="logout"><a href="<?php echo url_for("sf_guard_signout") ?>">Logout</a></span>
+            
+            <?php /*if($user_is_admin): ?>
+                <span class="logout"><a href="<?php echo url_for("sf_guard_signout") ?>">Admin </a>&nbsp;&nbsp;<span style="color: #778092">|</span></span>
+            <?php endif; */ ?>
+        </h2>
+            
 <table class="data">
 	<thead>
 		<tr>

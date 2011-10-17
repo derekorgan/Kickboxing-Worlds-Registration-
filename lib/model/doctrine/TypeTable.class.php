@@ -16,4 +16,8 @@ class TypeTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Type');
     }
+   public function __toString()
+   {
+       return $this->getName();
+   }
 }

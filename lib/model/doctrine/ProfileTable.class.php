@@ -16,4 +16,10 @@ class ProfileTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Profile');
     }
+    
+    
+   public function getId()
+   {
+       return $this->getFirstName . " " . $this->getLastName();
+   }
 }

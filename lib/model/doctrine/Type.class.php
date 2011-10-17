@@ -12,5 +12,8 @@
  */
 class Type extends BaseType
 {
-
+   public function __toString()
+   {
+       return (string) $this->getName();
+   }
 }
