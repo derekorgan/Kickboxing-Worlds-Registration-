@@ -12,6 +12,6 @@
  */
 class Attendee extends BaseAttendee
 {
-  
+
 
 }

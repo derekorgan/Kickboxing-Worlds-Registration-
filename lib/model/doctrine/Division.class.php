@@ -12,5 +12,10 @@
  */
 class Division extends BaseDivision
 {
-
+    public function __toString()
+    {
+        return $this->getDiscipline()->getName() . " " . $this->getDiscipline()->getSex() . " - " . $this->category . ", " . $this->weight;
+        
+        //{discipline.name discipline.sex - division.category division.weight}
+    }
 }

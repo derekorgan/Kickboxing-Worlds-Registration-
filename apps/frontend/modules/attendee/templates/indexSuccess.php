@@ -22,7 +22,7 @@
                 
                 <?php foreach ($attendees as $attendee): ?>
 		<tr>
-			<td><?php echo $attendee->getFirstName() ?></td>
+			<td><?php echo $attendee->getFirstName() . " " . $attendee->getLastName() ?></td>
 			<td><?php echo $attendee->getType() ?></td>
 			<td colspan="2">
                             

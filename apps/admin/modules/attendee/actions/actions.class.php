@@ -14,6 +14,28 @@ require_once dirname(__FILE__).'/../lib/attendeeGeneratorHelper.class.php';
 class attendeeActions extends autoAttendeeActions
 {
     
+    
+      public function executeIndex(sfWebRequest $request)
+      {
+        // sorting
+        if(!$request->getParameter('sort')) {
+            $sort = 'id';
+            $sort_type = 'desc';
+            $this->setSort(array($sort, $sort_type));
+        } else if($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
+          $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
+        }
+
+        // pager
+        if ($request->getParameter('page'))
+        {
+          $this->setPage($request->getParameter('page'));
+        }
+
+        $this->pager = $this->getPager();
+        $this->sort = $this->getSort();
+      }
+    
     public function executeExcel()
     {
         $this->setLayout(false);
