@@ -16,7 +16,9 @@ sf_guard_forgot_password:
   url: /forgot_pw
   param: { module: sfGuardForgotPassword, action: index }
 
-
+excel:
+  url:   /excel
+  param: { module: attendee, action: excel }
 
 sf_guard_signin:
   url:   /login

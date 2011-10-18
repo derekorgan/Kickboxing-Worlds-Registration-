@@ -13,8 +13,5 @@
 class Profile extends BaseProfile
 {
    
-   public function getId()
-   {
-       return $this->first_name . " " . $this->last_name;
-   }
+
 }

@@ -41,10 +41,12 @@ class BasesfGuardAuthActions extends sfActions
         // always redirect to a URL set in app.yml
         // or to the referer
         // or to the homepage
-        $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
+        //$signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
+        $signinUrl = '';
         
-        if(!$user->hasCredential('admin'))
-             $user->addCredential('regular_user');
+        
+        //if(!$user->hasCredential('admin'))
+        //     $user->addCredential('regular_user');
         return $this->redirect('' != $signinUrl ? $signinUrl : '@atten');
       }
     }
@@ -115,7 +117,8 @@ class BasesfGuardAuthActions extends sfActions
         // always redirect to a URL set in app.yml
         // or to the referer
         // or to the homepage
-        $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
+        //$signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
+        $signinUrl = '';
         
         //if($user->hasCredential('admin'))
         //     return $this->redirect('@homepage_admin');
