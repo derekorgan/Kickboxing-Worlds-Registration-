@@ -2,7 +2,7 @@
 <?php include_partial('attendee/assets') ?>
 
 <div id="sf_admin_container">
-    <h1><?php echo __('Attendee List', array(), 'messages') ?><a style="float: right" href="<?php echo url_for('@sf_guard_signout') ?>">&lt;&nbsp;Logout</a></h1>
+    <h1><?php echo __('Attendee List', array(), 'messages') ?>&nbsp; &gt; &nbsp;<a style="color: green" href="<?php echo url_for('@excel') ?>">Export to Excel</a>  <a style="float: right" href="<?php echo url_for('@sf_guard_signout') ?>">&lt;&nbsp;Logout</a></h1>
 
   <?php include_partial('attendee/flashes') ?>
 

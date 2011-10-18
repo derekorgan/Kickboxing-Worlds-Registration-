@@ -16,6 +16,9 @@ generator:
       fields:  ~
       list:    ~
       filter:  ~
-      form:    ~
+      form:
+        class: BackendAttendeeForm
       edit:    ~
+        #display:
+          #'Attendee Information': [ profile_id, division_id, type_id, first_name, last_name, sex, club_name, accomodation, sharing_with1, sharing_with2, flight_datetime, flight_time, flight_number, visa, dob, passport, expiry_date ]
       new:     ~

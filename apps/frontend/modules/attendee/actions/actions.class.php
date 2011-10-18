@@ -31,12 +31,24 @@ class attendeeActions extends sfActions
     $this->forward404If($this->getUser()->hasCredential('admin'));
     $user = $this->getUser()->getGuardUser();
     
+/*$this->divisions = Doctrine_Core::getTable('Division')
+	->findAll();
+
+foreach($this->divisions as $obj)
+    echo $obj->getCategory();
+
+
+$this->profiles = Doctrine_Core::getTable('Profile')
+	->findAll();
+
+foreach($this->profiles as $obj)
+    echo $obj->getId();*/
     
     $this->user_is_admin = $this->getUser()->hasCredential('admin');
     
     $gu = $this->getUser()->getGuardUser();
     //single profile
-    
+    $this->user_id = $user->getId();
     $profile_coll = Doctrine_Core::getTable('Profile')->findBySfGuardUserId(array($this->user_id));
     $profile = $profile_coll[0];
     

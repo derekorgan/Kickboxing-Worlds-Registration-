@@ -103,13 +103,17 @@ class AttendeeForm extends BaseAttendeeForm
       }
       
       $new_divs = array();
+      $new_divs['0'] = 'Select One';
       foreach($divs as $key => $value) 
       {
           $new_divs[$value] = $key;
 
       }
+      
       $this->widgetSchema['division_id'] = new sfWidgetFormChoice(array(
-		'choices' => array('0' => 'Select One'))
+		//'choices' => array('0' => 'Select One'))
+                'choices' => $new_divs)
+          
       );
       
       
