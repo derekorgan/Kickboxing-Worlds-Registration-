@@ -96,7 +96,7 @@
 	<legend>Accomodation</legend>
         
       <div class="field">
-        <?php echo $form['accomodation']->renderLabel('Type of Accomodation') ?>
+        <?php echo $form['accomodation']->renderLabel('Type of Accommodation') ?>
         
           
           <?php echo $form['accomodation'] ?>
