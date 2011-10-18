@@ -38,6 +38,7 @@ class AttendeeForm extends BaseAttendeeForm
             'May',
             'Jun',
             'Jul',
+            'Aug',
             'Sep',
             'Oct',
             'Nov',
