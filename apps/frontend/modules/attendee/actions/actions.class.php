@@ -28,10 +28,27 @@ class attendeeActions extends sfActions
     
   public function executeIndex(sfWebRequest $request)
   {
-    $this->user_id = $this->getUser()->getGuardUser()->getId();
+    $this->forward404If($this->getUser()->hasCredential('admin'));
+    $user = $this->getUser()->getGuardUser();
     
+/*$this->divisions = Doctrine_Core::getTable('Division')
+	->findAll();
+
+foreach($this->divisions as $obj)
+    echo $obj->getCategory();
+
+
+$this->profiles = Doctrine_Core::getTable('Profile')
+	->findAll();
+
+foreach($this->profiles as $obj)
+    echo $obj->getId();*/
+    
+    $this->user_is_admin = $this->getUser()->hasCredential('admin');
+    
+    $gu = $this->getUser()->getGuardUser();
     //single profile
-    
+    $this->user_id = $user->getId();
     $profile_coll = Doctrine_Core::getTable('Profile')->findBySfGuardUserId(array($this->user_id));
     $profile = $profile_coll[0];
     
@@ -58,17 +75,18 @@ class attendeeActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
+    $this->forward404If($this->getUser()->hasCredential('admin'));
     $this->attendee = Doctrine_Core::getTable('Attendee')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->attendee);
   }
 
   public function executeNew(sfWebRequest $request)
   {
+    $this->forward404If($this->getUser()->hasCredential('admin'));
     $this->form = new AttendeeForm();
     
     $this->profile_id = $this->getProfileId();
-    
-    
+   
   }
 
 
@@ -96,13 +114,13 @@ class attendeeActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
+      $this->forward404If($this->getUser()->hasCredential('admin'));
+      $this->profile_id = $this->getProfileId();
       
-     $this->profile_id = $this->getProfileId();
-      
-     //$this->forward404Unless($attendee = Doctrine_Core::getTable('Attendee')->findOneByProfileId(array($this->profile_id)), sprintf('Object address does not exist.'));
-    //$this->forward404Unless($address = Doctrine_Core::getTable('Address')->findOneByUserId(array($this->id)), sprintf('Object address does not exist (%s).', $request->getParameter('id')));
-    $this->forward404Unless($attendee = Doctrine_Core::getTable('Attendee')->find(array($request->getParameter('id'))), sprintf('Object attendee does not exist (%s).', $request->getParameter('id')));
-    $this->forward404Unless($attendee->getProfileId() == $this->profile_id);
+      //$this->forward404Unless($attendee = Doctrine_Core::getTable('Attendee')->findOneByProfileId(array($this->profile_id)), sprintf('Object address does not exist.'));
+      //$this->forward404Unless($address = Doctrine_Core::getTable('Address')->findOneByUserId(array($this->id)), sprintf('Object address does not exist (%s).', $request->getParameter('id')));
+      $this->forward404Unless($attendee = Doctrine_Core::getTable('Attendee')->find(array($request->getParameter('id'))), sprintf('Object attendee does not exist (%s).', $request->getParameter('id')));
+      $this->forward404Unless($attendee->getProfileId() == $this->profile_id);
     
     
      $this->form = new AttendeeForm($attendee);

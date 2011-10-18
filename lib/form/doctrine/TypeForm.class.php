@@ -13,4 +13,9 @@ class TypeForm extends BaseTypeForm
   public function configure()
   {
   }
+  
+   public function __toString()
+   {
+       return (string) $this->getName();
+   }
 }
