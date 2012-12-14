@@ -11,4 +11,4 @@ dev:
     param:
       dsn: 'mysql:dbhost=localhost;dbname=_kickboxing_dev'
       username: root
-      password: wh1stl3r
+      password: xxxxx
